@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Charting Death</title>
+
+    <!-- jquery>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
+
+
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" type="text/css" href="styles/milligram.css">
+
+    <!-- My own stylings and scripts -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script type="text/javascript" src="scripts/script.js"></script>
+
+    <!-- Charts.js >
+    <script rel="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script-->
+
+    <!-- Papa Parser for CSV -->
+    <script rel="text/javascript" src="scripts/papaparse.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="owen-logo">
+        <img src="images/owenshenlogo.png" />
+      </div>
+
+      <!-- HEADING -->
+      <h1 id="deaths-reality-vs-reported">Deaths: Reality vs Reported</h1>
+
+      <p>MAYBE INSERT GIF</p>
+
+      <!-- BACKGROUND -->
+      <h2 id="background-">Background:</h2>
+
+      <p>How do people die?</p>
+
+      <p>Alternatively, how do people <em>think</em> we die?</p>
+
+      <p>Well, it turns out there's a fascinating study done by Slovic and Comb where they looked at how often different types of deaths were mentioned in the news. They then compared the frequency of news coverage with the actual frequency of people who died for each cause.</p>
+
+      <p>The results are what you might cynically expect: </p>
+
+      <blockquote>
+      <p>"Although all diseases claim almost 1,OOO times as many lives as do homicides. there were about three times as many articles about homicides than about all diseases. Furthermore. homicide articles tended to be more than twice as long as articles reporting deaths from diseases and accidents."</p>
+      </blockquote>
+
+      <p>
+        Since 1979, when the <a href="http://journals.sagepub.com/doi/abs/10.1177/107769907905600420?journalCode=jmqb">original Combs and Slovic study</a> was conducted, there have been several more empirical analyses which have found largely similar results. (Notably, <a href="https://www.ncbi.nlm.nih.gov/pubmed/18281322">here</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2569209/">here</a>)
+      </p>
+
+      <p>
+        For our final capstone project in the phenomenal <a href="http://darb.ketyov.com/entertainment">Bradley Voytek's</a> COGS 108 course at UCSD, Data Science in Practice, we thought it would be interesting to try our hands at our own attempt, putting to use some of our newfound skills.
+      </p>
+
+      <p>
+        For anyone curious about any of the steps throughout this project, the original data and code we used to do all this analysis is available here-LINK on GitHub.
+      </p>
+
+
+      <hr />
+
+
+
+      <!-- DATA GATHERING -->
+      <h2 id="data-the-gathering">Data: The Gathering</h2>
+
+      <p>First off, we need to figure out exactly which deaths we'll be looking at. We'll go with the top 10 causes of death given by the CDC, as well as terrorism, overdoses, and homicide, three other causes which we think are often accused of being overrepresented.</p>
+
+      <ol>
+      <p>Our final list of causes:</p>
+      <li>Heart Disease</li>
+      <li>Cancer</li>
+      <li>Lower Respiratory Diesease</li>
+      <li>Car Accidents</li>
+      <li>Stroke</li>
+      <li>Diabetes</li>
+      <li>Alzheimer&#39;s Disease</li>
+      <li>Pneumonia &amp; Influenza</li>
+      <li>Kidney</li>
+      <li>Suicide</li>
+      <li>Homicide</li>
+      <li>Terrorism</li>
+      <li>Overdose</li>
+      </ol>
+
+      <p>NOTE: Unintentional Injuries actually contains car accidents and overdoses, and we split up that into two categories. WRITE MORE STUFF HERE.</p>
+
+      <p>With this list of keywords, we'll grab our death data from the CDC's WONDER database. However, the CDC data is arranged by ICD-10 codes which is quite messy to handle. The codes don't exactly correspond to our typical notion of categories; some, like overdoses, are scattered across different letter codes. So we'll need to do some manually sorting and make a few judgment calls.</p>
+
+      <p>
+        Here's what our final data looks like.
+      </p>
+
+
+
+
+
+    </div>
+
+
+
+  </body>
+
+</html>
