@@ -88,7 +88,7 @@ function chart_data(data, year, chart_id) {
       datasets: data_list
     },
     options: {
-      title {
+      title: {
         display: true,
         text: data[year]['Year']
       },
