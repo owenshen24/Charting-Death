@@ -55,7 +55,7 @@ function chart_data(data, year, chart_id) {
     label_list.push(data[0][i]);
     var temp_data = {
       label: data[0][i],
-      data: data[year][i],
+      data: [data[year][i]],
       borderWidth: 1
     };
     data_list.push(temp_data);
