@@ -64,7 +64,10 @@ function chart_data(data, year, chart_id) {
   var canvas = $(chart_id);
   var chart = new Chart(canvas, {
     type: 'bar',
-    data: data_list,
+    data: {
+      labels: label_list,
+      datasets: data_list
+    }
     options: {
       scales: {
         yAxes: [{
