@@ -1,4 +1,19 @@
-var colors = []
+var colors = [
+'rgba(77, 157, 224, 1)',
+'rgba(225, 188, 41, 1)',
+'rgba(255, 133, 82, 1)',
+'rgba(59, 178, 115, 1)',
+'rgba(119, 104, 174, 1)',
+'rgba(129, 141, 146, 1)',
+'rgba(88, 106, 106, 1)',
+'rgba(185, 163, 148, 1)',
+'rgba(212, 197, 199, 1)',
+'rgba(218, 212, 239, 1)',
+'rgba(163, 217, 255, 1)',
+'rgba(126, 107, 143, 1)',
+'rgba(150, 230, 179, 1)',
+'rgba(218, 62, 82, 1)',
+'rgba(242, 233, 78, 1)']
 
 $( document ).ready(function() {
 
@@ -56,7 +71,8 @@ function chart_data(data, year, chart_id) {
     var temp_data = {
       label: data[0][i],
       data: [data[year][i]],
-      borderWidth: 1
+      borderWidth: 1,
+      backgroundColor: [colors[i]]
     };
     data_list.push(temp_data);
   }
@@ -74,6 +90,7 @@ function chart_data(data, year, chart_id) {
           beginAtZero:true,
           ticks: {
             min: 0,
+            max: 0.5,
             autoSkip: false}}],
         xAxes: [{
           stacked: false,
