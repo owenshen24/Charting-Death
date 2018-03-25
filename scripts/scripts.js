@@ -36,7 +36,7 @@ $.get(google_path, function (data) {
 function chart_google(data) {
   label_list = [];
   for (var i = 0; i < Object.keys(data).length; i++) {
-    label_list.push(data[i]);
+    label_list.push(data[0][i]);
   }
   alert(label_list);
   var google_canvas = $("#google_chart");
