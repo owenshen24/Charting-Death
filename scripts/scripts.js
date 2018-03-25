@@ -47,11 +47,13 @@ $.get(google_path, function (data) {
 function chart_data(data, year, chart_id) {
   label_list = [];
   data_list = [];
-  for (var i = 0; i < Object.keys(data).length; i++) {
+
+  // Hard-coded limit to solve problems w/ undefined
+  for (var i = 0; i < 13; i++) {
     label_list.push(data[0][i]);
     data_list.push(data[year][i]);
   }
-  label_list = label_list.slice(0, 12);
+
   var canvas = $(chart_id);
   var chart = new Chart(canvas, {
     type: 'bar',
@@ -66,7 +68,7 @@ function chart_data(data, year, chart_id) {
       scales: {
         yAxes: [{
           ticks: {
-            beginAtZero:true}}]}}});
+          beginAtZero:true}}]}}});
   }
 
 
