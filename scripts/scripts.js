@@ -83,7 +83,8 @@ function chart_data(data, year, chart_id) {
             autoSkip: false}}]
         },
         legend: {
-          display: true
+          display: true,
+          position: 'top'
         }
     }});
   }
