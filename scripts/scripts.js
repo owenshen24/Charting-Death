@@ -35,15 +35,8 @@ $.get(google_path, function (data) {
 
 function chart_google(data) {
   alert(data[0][0]);
-}
-
-
-
-
-
-  var ctx = $("#myChart");
-  /*
-  var myChart = new Chart(ctx, {
+  var google_canvas = $("#google_chart");
+  var google_chart = new Chart(google_canvas, {
     type: 'bar',
     data: {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -73,10 +66,9 @@ function chart_google(data) {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-  }); */
+                    beginAtZero:true}}]}}});
+  }
+
+
+
 });
