@@ -53,18 +53,18 @@ function chart_data(data, year, chart_id) {
   // Hard-coded limit to solve problems w/ undefined
   for (var i = 0; i < 13; i++) {
     label_list.push(data[0][i]);
-    var data_obj = {
+    var temp_data = {
       label: data[0][i],
       data: data[year][i],
       borderWidth: 1
     };
-    data_list.push(data[year][i]);
+    data_list.push(temp_data);
   }
 
   var canvas = $(chart_id);
   var chart = new Chart(canvas, {
     type: 'bar',
-    data: data_obj,
+    data: data_list,
     options: {
       scales: {
         yAxes: [{
