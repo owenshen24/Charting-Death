@@ -1,5 +1,19 @@
 $( document ).ready(function() {
 
+// Variables to refer to our chart selectors
+var cdc_chart = "#cdc_chart";
+var google_chart = "#google_chart";
+var guardian_chart = "#guardian_chart";
+var nyt_chart = "#nyt_chart";
+
+// Variables to refer to our data paths
+var google_path = 'data/tp_google_trends_normalized.csv';
+
+var cdc_data = [];
+var google_data = [];
+var nyt_data = [];
+var guardian_data = [];
+
 var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
@@ -13,7 +27,8 @@ var google_config = {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-	     chart_google(results.data, 1);
+      google_data = results.data;
+      chart_data(google_data, 1, google_chart);
      },
   	error: undefined,
   	download: false,
@@ -24,50 +39,21 @@ var google_config = {
   	withCredentials: undefined
   }
 
-var google_path = 'data/tp_google_trends_normalized.csv';
-
 $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
-      console.log(csvdata.data);
-      console.log(csvdata.data.keys());
-      console.log(csvdata.data[0]);
   });
 
-function chart_google(data, year) {
+function chart_data(data, year, chart_id) {
   label_list = [];
   data_list = [];
   for (var i = 0; i < Object.keys(data).length; i++) {
     label_list.push(data[0][i]);
     data_list.push(data[year][i]);
   }
-  alert(label_list);
-  var google_canvas = $("#google_chart");
-  var google_chart = new Chart(google_canvas, {
+  var canvas = $(chart_id);
+  var chart = new Chart(canvas, {
     type: 'bar',
-    data: {
-        labels: label_list,
-        datasets: [{
-            label: '# of Votes',
-            data: data_list,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
+    data: data_list,
     options: {
         scales: {
             yAxes: [{
