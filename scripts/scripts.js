@@ -61,6 +61,7 @@ function chart_data(data, year, chart_id) {
       labels: label_list,
       datasets: [{
         data: data_list,
+        label: label_list,
         borderWidth: 1
       }]
     },
@@ -79,7 +80,7 @@ function chart_data(data, year, chart_id) {
             autoSkip: false}}]
         },
         legend: {
-          display: false
+          display: true
         }
     }});
   }
