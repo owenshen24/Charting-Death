@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
   $.get(google_path, function (data) {
         var csvdata = Papa.parse(data);
-        console.log(csvdata);
+        console.log(csvdata[0]);
     });
 
 
