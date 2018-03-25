@@ -67,7 +67,7 @@ function chart_data(data, year, chart_id) {
     data: {
       labels: label_list,
       datasets: data_list
-    }
+    },
     options: {
       scales: {
         yAxes: [{
