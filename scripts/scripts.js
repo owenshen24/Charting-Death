@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  var google_config = {
+var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
   	quoteChar: '"',
@@ -27,7 +27,7 @@ $( document ).ready(function() {
 var google_path = 'data/tp_google_trends_normalized.csv';
 
 $.get(google_path, function (data) {
-      var csvdata = Papa.parse(data, parse_config);
+      var csvdata = Papa.parse(data, google_config);
       console.log(csvdata.data);
       console.log(csvdata.data.keys());
       console.log(csvdata.data[0]);
