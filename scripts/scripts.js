@@ -43,7 +43,7 @@ function chart_google(data) {
   var google_chart = new Chart(google_canvas, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: label_list,
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
