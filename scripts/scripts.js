@@ -1,3 +1,5 @@
+var colors = []
+
 $( document ).ready(function() {
 
 // Variables to refer to our chart selectors
@@ -51,20 +53,18 @@ function chart_data(data, year, chart_id) {
   // Hard-coded limit to solve problems w/ undefined
   for (var i = 0; i < 13; i++) {
     label_list.push(data[0][i]);
+    var data_obj = {
+      label: data[0][i],
+      data: data[year][i],
+      borderWidth: 1
+    };
     data_list.push(data[year][i]);
   }
 
   var canvas = $(chart_id);
   var chart = new Chart(canvas, {
     type: 'bar',
-    data: {
-      labels: label_list,
-      datasets: [{
-        data: data_list,
-        label: label_list,
-        borderWidth: 1
-      }]
-    },
+    data: data_obj,
     options: {
       scales: {
         yAxes: [{
