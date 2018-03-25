@@ -33,7 +33,7 @@ var nyt_chart = "#nyt_chart";
 // Variables to refer to our data paths
 var google_path = 'data/tp_google_trends_normalized.csv';
 
-var chart_config = {
+var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
   	quoteChar: '"',
@@ -58,15 +58,17 @@ var chart_config = {
   }
 
 $.get(google_path, function (data) {
-      var csvdata = Papa.parse(data, chart_config);
+      var csvdata = Papa.parse(data, google_config);
       google_data = csvdata;
   });
 
+
+// Abstracted charting function
 function chart_data(data, year, chart_id) {
   label_list = [];
   data_list = [];
 
-  // Hard-coded limit to solve problems w/ undefined
+  // Hard-coded limit of 13 to solve problems w/ undefined
   for (var i = 0; i < 13; i++) {
     label_list.push(data[0][i]);
     var temp_data = {
@@ -86,6 +88,10 @@ function chart_data(data, year, chart_id) {
       datasets: data_list
     },
     options: {
+      title {
+        display: true,
+        text: data[year]['Year']
+      },
       scales: {
         yAxes: [{
           beginAtZero:true,
