@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-  var google_path = 'data/new_google_normalized_trends.css';
+  var google_path = 'data/new_google_normalized_trends.csv';
 
   $.get(google_path, function (data) {
         var csvdata = Papa.parse(data);
