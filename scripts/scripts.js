@@ -34,7 +34,11 @@ $.get(google_path, function (data) {
   });
 
 function chart_google(data) {
-  alert(data[0][0]);
+  label_list = [];
+  for (var i = 0; i < data.length(); i++) {
+    label_list.push(data[i]);
+  }
+  alert(label_list);
   var google_canvas = $("#google_chart");
   var google_chart = new Chart(google_canvas, {
     type: 'bar',
