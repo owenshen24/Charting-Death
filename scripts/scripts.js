@@ -68,7 +68,12 @@ function chart_data(data, year, chart_id) {
       scales: {
         yAxes: [{
           ticks: {
-          beginAtZero:true}}]}}});
+          beginAtZero:true}}]},
+      legend: {
+        display: true,
+        labels: label_list
+      }
+        }});
   }
 
 
