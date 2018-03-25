@@ -22,7 +22,7 @@ $( document ).ready(function() {
   	withCredentials: undefined
   }
 
-  var google_path = 'data/new_google_normalized_trends.csv';
+  var google_path = 'data/tp_google_trends_normalized.csv';
 
   $.get(google_path, function (data) {
         var csvdata = Papa.parse(data, parse_config);
