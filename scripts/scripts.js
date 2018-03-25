@@ -46,7 +46,7 @@ var chart_config = {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(google_data, 1, google_chart);
+      chart_data(results.data, 1, google_chart);
      },
   	error: undefined,
   	download: false,
