@@ -9,6 +9,7 @@ var nyt_chart = "#nyt_chart";
 // Variables to refer to our data paths
 var google_path = 'data/tp_google_trends_normalized.csv';
 
+// Variables to store our csv data as a JS Object
 var cdc_data = [];
 var google_data = [];
 var nyt_data = [];
@@ -50,6 +51,7 @@ function chart_data(data, year, chart_id) {
     label_list.push(data[0][i]);
     data_list.push(data[year][i]);
   }
+  label_list = label_list.slice(0, 12);
   var canvas = $(chart_id);
   var chart = new Chart(canvas, {
     type: 'bar',
