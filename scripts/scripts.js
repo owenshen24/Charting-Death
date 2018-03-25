@@ -16,6 +16,12 @@ var colors = [
   'rgba(242, 233, 78, 1)'
 ]
 
+// Variables to store our csv data as a JS Object
+var cdc_data = undefined;
+var google_data = undefined;
+var nyt_data = undefined;
+var guardian_data = undefined;
+
 $( document ).ready(function() {
 
 // Variables to refer to our chart selectors
@@ -26,12 +32,6 @@ var nyt_chart = "#nyt_chart";
 
 // Variables to refer to our data paths
 var google_path = 'data/tp_google_trends_normalized.csv';
-
-// Variables to store our csv data as a JS Object
-var cdc_data = undefined;
-var google_data = undefined;
-var nyt_data = undefined;
-var guardian_data = undefined;
 
 var google_config = {
   	delimiter: "",	// auto-detect
