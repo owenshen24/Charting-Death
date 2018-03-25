@@ -1,19 +1,20 @@
 var colors = [
-'rgba(77, 157, 224, 1)',
-'rgba(225, 188, 41, 1)',
-'rgba(255, 133, 82, 1)',
-'rgba(59, 178, 115, 1)',
-'rgba(119, 104, 174, 1)',
-'rgba(129, 141, 146, 1)',
-'rgba(88, 106, 106, 1)',
-'rgba(185, 163, 148, 1)',
-'rgba(212, 197, 199, 1)',
-'rgba(218, 212, 239, 1)',
-'rgba(163, 217, 255, 1)',
-'rgba(126, 107, 143, 1)',
-'rgba(150, 230, 179, 1)',
-'rgba(218, 62, 82, 1)',
-'rgba(242, 233, 78, 1)']
+  'rgba(77, 157, 224, 1)',
+  'rgba(225, 188, 41, 1)',
+  'rgba(255, 133, 82, 1)',
+  'rgba(59, 178, 115, 1)',
+  'rgba(119, 104, 174, 1)',
+  'rgba(129, 141, 146, 1)',
+  'rgba(88, 106, 106, 1)',
+  'rgba(185, 163, 148, 1)',
+  'rgba(212, 197, 199, 1)',
+  'rgba(218, 212, 239, 1)',
+  'rgba(163, 217, 255, 1)',
+  'rgba(126, 107, 143, 1)',
+  'rgba(150, 230, 179, 1)',
+  'rgba(218, 62, 82, 1)',
+  'rgba(242, 233, 78, 1)'
+]
 
 $( document ).ready(function() {
 
@@ -27,10 +28,10 @@ var nyt_chart = "#nyt_chart";
 var google_path = 'data/tp_google_trends_normalized.csv';
 
 // Variables to store our csv data as a JS Object
-var cdc_data = [];
-var google_data = [];
-var nyt_data = [];
-var guardian_data = [];
+var cdc_data = undefined;
+var google_data = undefined;
+var nyt_data = undefined;
+var guardian_data = undefined;
 
 var google_config = {
   	delimiter: "",	// auto-detect
@@ -59,6 +60,8 @@ var google_config = {
 
 $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
+      console.log(csvdata);
+      google_data = csvdata;
   });
 
 function chart_data(data, year, chart_id) {
@@ -90,7 +93,6 @@ function chart_data(data, year, chart_id) {
           beginAtZero:true,
           ticks: {
             min: 0,
-            max: 0.5,
             autoSkip: false}}],
         xAxes: [{
           stacked: false,
