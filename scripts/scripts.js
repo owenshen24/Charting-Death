@@ -67,15 +67,21 @@ function chart_data(data, year, chart_id) {
     options: {
       scales: {
         yAxes: [{
+          beginAtZero:true,
           ticks: {
-          beginAtZero:true}}]},
-      legend: {
-        display: true,
-        labels: {
-          text: label_list
+            min: 0,
+            autoSkip: false}}],
+        xAxes: [{
+          stacked: false,
+          beginAtZero: true,
+          ticks: {
+            min: 0,
+            autoSkip: false}}]
+        },
+        legend: {
+          display: false
         }
-      }
-        }});
+    }});
   }
 
 
