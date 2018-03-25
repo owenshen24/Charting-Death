@@ -59,7 +59,7 @@ var chart_config = {
 
 $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, chart_config);
-      google_data = csvdata.data;
+      google_data = csvdata;
   });
 
 function chart_data(data, year, chart_id) {
