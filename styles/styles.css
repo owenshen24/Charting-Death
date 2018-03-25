@@ -13,4 +13,10 @@ hr {
   margin-right: auto;
   width: 100px;
   padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.graph {
+  height: 500px;
+  width: 500px;
 }
