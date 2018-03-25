@@ -26,6 +26,8 @@ $( document ).ready(function() {
 
   $.get(google_path, function (data) {
         var csvdata = Papa.parse(data, parse_config);
+        console.log(csvdata.data);
+        console.log(csvdata.data.keys());
         console.log(csvdata.data[0]);
     });
 
