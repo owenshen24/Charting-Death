@@ -34,7 +34,7 @@ $.get(google_path, function (data) {
   });
 
 function chart_google(data) {
-  alert(data[0]);
+  alert(data[0][0]);
 }
 
 
