@@ -33,7 +33,7 @@ var nyt_chart = "#nyt_chart";
 // Variables to refer to our data paths
 var google_path = 'data/tp_google_trends_normalized.csv';
 
-var google_config = {
+var chart_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
   	quoteChar: '"',
@@ -46,7 +46,6 @@ var google_config = {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      google_data = results.data;
       chart_data(google_data, 1, google_chart);
      },
   	error: undefined,
@@ -59,9 +58,8 @@ var google_config = {
   }
 
 $.get(google_path, function (data) {
-      var csvdata = Papa.parse(data, google_config);
-      console.log(csvdata);
-      google_data = csvdata;
+      var csvdata = Papa.parse(data, chart_config);
+      google_data = csvdata.data;
   });
 
 function chart_data(data, year, chart_id) {
