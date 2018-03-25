@@ -65,7 +65,7 @@ function chart_data(data, year, chart_id) {
   var chart = new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: label_list,
+      // labels: label_list,
       datasets: data_list
     },
     options: {
