@@ -1,10 +1,32 @@
 $( document ).ready(function() {
 
+  var parse_config = {
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: undefined,
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
+
   var google_path = 'data/new_google_normalized_trends.csv';
 
   $.get(google_path, function (data) {
-        var csvdata = Papa.parse(data);
-        console.log(csvdata[0]);
+        var csvdata = Papa.parse(data, parse_config);
+        console.log(csvdata.data[0]);
     });
 
 
