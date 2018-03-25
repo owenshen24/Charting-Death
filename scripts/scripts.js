@@ -71,7 +71,9 @@ function chart_data(data, year, chart_id) {
           beginAtZero:true}}]},
       legend: {
         display: true,
-        labels: label_list
+        labels: {
+          text: label_list
+        }
       }
         }});
   }
