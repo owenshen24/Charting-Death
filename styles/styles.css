@@ -16,6 +16,10 @@ hr {
   padding-top: 10px;
 }
 
+.centered {
+  text-align: center;
+}
+
 /* .graph {
   height: 500px;
   width: 500px;
