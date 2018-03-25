@@ -84,7 +84,7 @@ function chart_data(data, year, chart_id) {
         },
         legend: {
           display: true,
-          position: 'top'
+          position: 'left'
         }
     }});
   }
