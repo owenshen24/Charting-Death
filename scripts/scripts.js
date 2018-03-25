@@ -13,7 +13,7 @@ var google_config = {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-	     chart_google(results.data);
+	     chart_google(results.data, 1);
      },
   	error: undefined,
   	download: false,
@@ -33,10 +33,12 @@ $.get(google_path, function (data) {
       console.log(csvdata.data[0]);
   });
 
-function chart_google(data) {
+function chart_google(data, year) {
   label_list = [];
+  data_list = [];
   for (var i = 0; i < Object.keys(data).length; i++) {
     label_list.push(data[0][i]);
+    data_list.push(data[year][i]);
   }
   alert(label_list);
   var google_canvas = $("#google_chart");
