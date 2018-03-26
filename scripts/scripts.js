@@ -177,7 +177,7 @@ $( document ).ready(function() {
       data_list.push(temp_data);
     }
     chart.data.datasets.push(data_list);
-    chart.options.title.text: title + data[year]['Year'];
+    // chart.options.title.text: title + data[year]['Year'];
     chart.update();
   }
 
