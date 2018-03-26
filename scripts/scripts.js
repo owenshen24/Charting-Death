@@ -82,7 +82,7 @@ $( document ).ready(function() {
   // AJAX request to grab the google trends csv
   $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
-      google_data = csvdata;
+      google_data = csvdata.data;
     });
 
 
