@@ -118,7 +118,8 @@ function chart_data(data, year, chart_id, title) {
           position: 'left',
           labels: {
             padding: 5,
-            boxWidth: 20
+            boxWidth: 20,
+            fontSize: 14
           }
         }
     }});
