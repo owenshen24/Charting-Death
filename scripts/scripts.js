@@ -77,7 +77,7 @@ $( document ).ready(function() {
 
 
   // Abstracted charting function
-  function chart_data(data, year, chart_id, title) {
+  function chart_data(data, year, canvas_id, title) {
     label_list = [];
     data_list = [];
 
@@ -93,7 +93,7 @@ $( document ).ready(function() {
       data_list.push(temp_data);
     }
 
-    var canvas = $(chart_id);
+    var canvas = $(canvas_id);
     var chart = new Chart(canvas, {
       type: 'bar',
       data: {
@@ -130,7 +130,13 @@ $( document ).ready(function() {
             }
           }
       }});
+
+    switch(canvas_id) {
+      case: google_canvas
+        google_chart = chart;
+        break;
     }
+  }
 
   // Function to show slider and update accordingly
   var google_slider = document.getElementById("google-slider");
