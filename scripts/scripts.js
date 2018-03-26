@@ -174,14 +174,13 @@ $( document ).ready(function() {
     // Add new data
     for (var i = 0; i < 13; i++) {
       var temp_data = {
-        label: data_list[0][i],
         data: [data_list[year][i]],
         borderWidth: 1,
         backgroundColor: [colors[i]]
       };
       chart.data.datasets.push(temp_data);
     }
-    // chart.options.title.text: title + data[year]['Year'];
+    chart.options.title['text'] = title + data[year]['Year'];
     chart.update();
   }
 
