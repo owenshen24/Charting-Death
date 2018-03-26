@@ -47,19 +47,6 @@ var google_canvas = "#google_chart";
 var guardian_canvas = "#guardian_chart";
 var nyt_canvas = "#nyt_chart";
 
-// Variables to refer to our chart sliders
-var cdc_slider = document.getElementById("cdc-slider");
-var cdc_output = document.getElementById("cdc-slider-value");
-
-var google_slider = document.getElementById("google-slider");
-var google_output = document.getElementById("google-slider-value");
-
-var guardian_slider = document.getElementById("guardian-slider");
-var guardian_output = document.getElementById("guardian-slider-value");
-
-var nyt_slider = document.getElementById("nyt-slider");
-var nyt_output = document.getElementById("nyt-slider-value");
-
 
 
 // Load once the page is ready
@@ -99,6 +86,18 @@ $( document ).ready(function() {
     });
 
 
+  // Variables to refer to our chart sliders
+  var cdc_slider = document.getElementById("cdc-slider");
+  var cdc_output = document.getElementById("cdc-slider-value");
+
+  var google_slider = document.getElementById("google-slider");
+  var google_output = document.getElementById("google-slider-value");
+
+  var guardian_slider = document.getElementById("guardian-slider");
+  var guardian_output = document.getElementById("guardian-slider-value");
+
+  var nyt_slider = document.getElementById("nyt-slider");
+  var nyt_output = document.getElementById("nyt-slider-value");
 
   // Function to show sliders and update accordingly:
   cdc_output.innerHTML = parseInt(cdc_slider.value) + 2003;
