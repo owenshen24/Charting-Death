@@ -139,7 +139,7 @@ $( document ).ready(function() {
 
   google_slider.oninput = function() {
     google_output.innerHTML = parseInt(google_slider.value) + 2003;
-    addData($(google_chart), ['Test'], [1]);
+    addData(google_chart, ['Test'], [1]);
   }
 
   function addData(chart, label, data) {
