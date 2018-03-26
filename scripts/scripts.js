@@ -169,11 +169,13 @@ $( document ).ready(function() {
     // Clear old data
     chart.data.datasets.forEach((dataset) => {
         dataset.data.pop();
+        dataset.label.pop();
     });
 
     // Add new data
     for (var i = 0; i < 13; i++) {
       var temp_data = {
+        label: data_list[0][i],
         data: [data_list[year][i]],
         borderWidth: 1,
         backgroundColor: [colors[i]]
