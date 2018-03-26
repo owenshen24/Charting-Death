@@ -116,7 +116,7 @@ function chart_data(data, year, chart_id, title) {
         legend: {
           display: true,
           position: 'left',
-          labels {
+          labels: {
             fontSize: 14
           }
         }
