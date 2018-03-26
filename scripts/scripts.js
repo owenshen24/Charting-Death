@@ -166,8 +166,8 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
+    var data_list = [];
     for (var i = 0; i < 13; i++) {
-      var data_list = [];
       var temp_data = {
         label: data[0][i],
         data: [data[year][i]],
