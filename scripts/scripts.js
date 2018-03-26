@@ -123,11 +123,10 @@ function chart_data(data, year, chart_id, title) {
     }});
   }
 
+  // Function to show slider and update accordingly
+  $('input[type=range]').on('input', function () {
+      alert("HEY");
+  });
 
-
-});
-
-// Function to show slider and update accordingly
-$('input[type=range]').on('input', function () {
-    alert("HEY");
+// Ending of the document-ready mega-function
 });
