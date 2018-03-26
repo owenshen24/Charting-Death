@@ -166,17 +166,17 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
-    var data_list = [];
+    var data_arr = [];
     for (var i = 0; i < 13; i++) {
       var temp_data = {
-        label: data[0][i],
-        data: [data[year][i]],
+        label: data_list[0][i],
+        data: [data_list[year][i]],
         borderWidth: 1,
         backgroundColor: [colors[i]]
       };
-      data_list.push(temp_data);
+      data_arr.push(temp_data);
     }
-    chart.data.datasets.push(data_list);
+    chart.data.datasets.push(data_arr);
     // chart.options.title.text: title + data[year]['Year'];
     chart.update();
   }
