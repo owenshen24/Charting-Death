@@ -35,6 +35,12 @@ var google_chart = undefined;
 var nyt_chart = undefined;
 var guardian_chart = undefined;
 
+// Variables for our graph titles
+var cdc_title = "PLACEHOLDER: ";
+var google_title = "Google Trends: ";
+var guardian_title = "PLACEHOLDER: ";
+var nyt_title = "PLACEHOLDER: ";
+
 // Load once the page is ready
 $( document ).ready(function() {
 
@@ -62,7 +68,7 @@ $( document ).ready(function() {
     	comments: false,
     	step: undefined,
     	complete: function(results) {
-        chart_data(results.data, 1, google_canvas, "Google Trends: ");
+        chart_data(results.data, 1, google_canvas, google_title);
        },
     	error: undefined,
     	download: false,
@@ -89,7 +95,7 @@ $( document ).ready(function() {
     for (var i = 0; i < 13; i++) {
       label_list.push(data[0][i]);
       var temp_data = {
-        label: data[year]['Year'],
+        label: data[0][i],
         data: [data[year][i]],
         borderWidth: 1,
         backgroundColor: [colors[i]]
@@ -155,16 +161,23 @@ $( document ).ready(function() {
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
   google_slider.oninput = function() {
     google_output.innerHTML = parseInt(google_slider.value) + 2003;
-    addData(google_chart, google_data[parseInt(google_slider.value)]);
+    updateData(google_chart, google_data, parseInt(google_slider.value), google_title);
   }
 
   // Updates a graph
-  function addData(chart, data) {
+  function updateData(chart, data_list, year, title) {
     for (var i = 0; i < 13; i++) {
-      dataset.data.push(data);
-      datasets.borderWidth: 1;
-      dataset.backgroundColor: [colors[i]];
+      var data_list = [];
+      var temp_data = {
+        label: data[0][i],
+        data: [data[year][i]],
+        borderWidth: 1,
+        backgroundColor: [colors[i]]
+      };
+      data_list.push(temp_data);
     }
+    chart.data.datasets.push(data_list);
+    chart.options.title.text: title + data[year]['Year'];
     chart.update();
   }
 
