@@ -97,7 +97,8 @@ function chart_data(data, year, chart_id, title) {
     options: {
       title: {
         display: true,
-        text: title + data[year]['Year']
+        text: title + data[year]['Year'],
+        fontSize: 14
       },
       scales: {
         yAxes: [{
