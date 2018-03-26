@@ -23,126 +23,132 @@ var google_data = undefined;
 var nyt_data = undefined;
 var guardian_data = undefined;
 
+// Variables to store our charts as a JS Object
+var cdc_chart = undefined;
+var google_chart = undefined;
+var nyt_chart = undefined;
+var guardian_chart = undefined;
+
 // Load once the page is ready
 $( document ).ready(function() {
 
-// Variables to refer to our chart selectors
-var cdc_chart = "#cdc_chart";
-var google_chart = "#google_chart";
-var guardian_chart = "#guardian_chart";
-var nyt_chart = "#nyt_chart";
+  // Variables to refer to our chart selectors
+  var cdc_canvas = "#cdc_chart";
+  var google_canvas = "#google_chart";
+  var guardian_canvas = "#guardian_chart";
+  var nyt_canvas = "#nyt_chart";
 
-// Variables to refer to our data paths
-var cdc_path = 'data/tp_cdc_n.csv';
-var google_path = 'data/tp_google_trends_n.csv';
-var guardian_path = 'data/tp_guardian_n.csv';
-var nyt_path = 'data/tp_nyt_n.csv';
+  // Variables to refer to our data paths
+  var cdc_path = 'data/tp_cdc_n.csv';
+  var google_path = 'data/tp_google_trends_n.csv';
+  var guardian_path = 'data/tp_guardian_n.csv';
+  var nyt_path = 'data/tp_nyt_n.csv';
 
-// Chart JS config for google trends csv
-var google_config = {
-  	delimiter: "",	// auto-detect
-  	newline: "",	// auto-detect
-  	quoteChar: '"',
-  	escapeChar: '"',
-  	header: true,
-  	dynamicTyping: false,
-  	preview: 0,
-  	encoding: "",
-  	worker: false,
-  	comments: false,
-  	step: undefined,
-  	complete: function(results) {
-      chart_data(results.data, 1, google_chart, "Google Trends: ");
-     },
-  	error: undefined,
-  	download: false,
-  	skipEmptyLines: false,
-  	chunk: undefined,
-  	fastMode: undefined,
-  	beforeFirstChunk: undefined,
-  	withCredentials: undefined
-  }
+  // Chart JS config for google trends csv
+  var google_config = {
+    	delimiter: "",	// auto-detect
+    	newline: "",	// auto-detect
+    	quoteChar: '"',
+    	escapeChar: '"',
+    	header: true,
+    	dynamicTyping: false,
+    	preview: 0,
+    	encoding: "",
+    	worker: false,
+    	comments: false,
+    	step: undefined,
+    	complete: function(results) {
+        chart_data(results.data, 1, google_canvas, "Google Trends: ");
+       },
+    	error: undefined,
+    	download: false,
+    	skipEmptyLines: false,
+    	chunk: undefined,
+    	fastMode: undefined,
+    	beforeFirstChunk: undefined,
+    	withCredentials: undefined
+    }
 
-// AJAX request to grab the google trends csv
-$.get(google_path, function (data) {
-    var csvdata = Papa.parse(data, google_config);
-    google_data = csvdata;
-  });
-
-
-// Abstracted charting function
-function chart_data(data, year, chart_id, title) {
-  label_list = [];
-  data_list = [];
-
-  // Hard-coded limit of 13 to solve problems w/ undefined
-  for (var i = 0; i < 13; i++) {
-    label_list.push(data[0][i]);
-    var temp_data = {
-      label: data[0][i],
-      data: [data[year][i]],
-      borderWidth: 1,
-      backgroundColor: [colors[i]]
-    };
-    data_list.push(temp_data);
-  }
-
-  var canvas = $(chart_id);
-  var chart = new Chart(canvas, {
-    type: 'bar',
-    data: {
-      // labels: label_list,
-      datasets: data_list
-    },
-    options: {
-      title: {
-        display: true,
-        text: title + data[year]['Year'],
-        fontSize: 16,
-        padding: 20
-      },
-      scales: {
-        yAxes: [{
-          beginAtZero:true,
-          ticks: {
-            min: 0,
-            autoSkip: false}}],
-        xAxes: [{
-          stacked: false,
-          beginAtZero: true,
-          ticks: {
-            min: 0,
-            autoSkip: false}}]
-        },
-        legend: {
-          display: true,
-          position: 'left',
-          labels: {
-            padding: 5,
-            boxWidth: 30,
-            fontSize: 14
-          }
-        }
-    }});
-  }
-
-// Function to show slider and update accordingly
-var google_slider = document.getElementById("google-slider");
-var google_output = document.getElementById("google-slider-value");
-google_output.innerHTML = parseInt(google_slider.value) + 2003;
-google_slider.oninput = function() {
-  google_output.innerHTML = parseInt(google_slider.value) + 2003;
-  addData($(google_chart), ['Test'], [1]);
-}
-
-
-function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
+  // AJAX request to grab the google trends csv
+  $.get(google_path, function (data) {
+      var csvdata = Papa.parse(data, google_config);
+      google_data = csvdata;
     });
-    chart.update();
-}
+
+
+  // Abstracted charting function
+  function chart_data(data, year, chart_id, title) {
+    label_list = [];
+    data_list = [];
+
+    // Hard-coded limit of 13 to solve problems w/ undefined
+    for (var i = 0; i < 13; i++) {
+      label_list.push(data[0][i]);
+      var temp_data = {
+        label: data[0][i],
+        data: [data[year][i]],
+        borderWidth: 1,
+        backgroundColor: [colors[i]]
+      };
+      data_list.push(temp_data);
+    }
+
+    var canvas = $(chart_id);
+    var chart = new Chart(canvas, {
+      type: 'bar',
+      data: {
+        // labels: label_list,
+        datasets: data_list
+      },
+      options: {
+        title: {
+          display: true,
+          text: title + data[year]['Year'],
+          fontSize: 16,
+          padding: 20
+        },
+        scales: {
+          yAxes: [{
+            beginAtZero:true,
+            ticks: {
+              min: 0,
+              autoSkip: false}}],
+          xAxes: [{
+            stacked: false,
+            beginAtZero: true,
+            ticks: {
+              min: 0,
+              autoSkip: false}}]
+          },
+          legend: {
+            display: true,
+            position: 'left',
+            labels: {
+              padding: 5,
+              boxWidth: 30,
+              fontSize: 14
+            }
+          }
+      }});
+    }
+
+  // Function to show slider and update accordingly
+  var google_slider = document.getElementById("google-slider");
+  var google_output = document.getElementById("google-slider-value");
+  google_output.innerHTML = parseInt(google_slider.value) + 2003;
+
+  google_slider.oninput = function() {
+    google_output.innerHTML = parseInt(google_slider.value) + 2003;
+    addData($(google_chart), ['Test'], [1]);
+  }
+
+  function addData(chart, label, data) {
+      chart.data.labels.push(label);
+      chart.data.datasets.forEach((dataset) => {
+          dataset.data.push(data);
+      });
+      chart.update();
+  }
 
 // Ending of the document-ready mega-function
 });
