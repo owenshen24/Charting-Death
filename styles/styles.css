@@ -28,3 +28,7 @@ hr {
 .slider {
   width: 50%;
 }
+
+.slider-value {
+  font-size: 14px;
+}
