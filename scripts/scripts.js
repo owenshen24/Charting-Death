@@ -132,8 +132,17 @@ var google_output = document.getElementById("google-slider-value");
 google_output.innerHTML = parseInt(google_slider.value) + 2003;
 google_slider.oninput = function() {
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
+  addData($(google_chart), ['Test'], [1]);
 }
 
+
+function addData(chart, label, data) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
 
 // Ending of the document-ready mega-function
 });
