@@ -166,11 +166,9 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
+    
     // Clear old data
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-        dataset.label.pop();
-    });
+    chart.data.datasets = [];
 
     // Add new data
     for (var i = 0; i < 13; i++) {
