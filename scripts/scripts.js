@@ -36,25 +36,36 @@ var nyt_chart = undefined;
 var guardian_chart = undefined;
 
 // Variables for our graph titles
-var cdc_title = "PLACEHOLDER: ";
-var google_title = "Google Trends: ";
-var guardian_title = "PLACEHOLDER: ";
-var nyt_title = "PLACEHOLDER: ";
+var cdc_title = "CDC Relative Mortality Rates : ";
+var google_title = "Google Trends Relative Search Volume: ";
+var guardian_title = "The Guardian's Relative Usage: ";
+var nyt_title = "The NYT's Relative Usage: ";
+
+// Variables to refer to our chart selectors
+var cdc_canvas = "#cdc_chart";
+var google_canvas = "#google_chart";
+var guardian_canvas = "#guardian_chart";
+var nyt_canvas = "#nyt_chart";
+
+// Variables to refer to our chart sliders
+var cdc_slider = document.getElementById("cdc-slider");
+var cdc_output = document.getElementById("cdc-slider-value");
+
+var google_slider = document.getElementById("google-slider");
+var google_output = document.getElementById("google-slider-value");
+
+var guardian_slider = document.getElementById("guardian-slider");
+var guardian_output = document.getElementById("guardian-slider-value");
+
+var nyt_slider = document.getElementById("nyt-slider");
+var nyt_output = document.getElementById("nyt-slider-value");
+
+
 
 // Load once the page is ready
 $( document ).ready(function() {
 
-  // Variables to refer to our chart selectors
-  var cdc_canvas = "#cdc_chart";
-  var google_canvas = "#google_chart";
-  var guardian_canvas = "#guardian_chart";
-  var nyt_canvas = "#nyt_chart";
-
-  // Variables to refer to our chart sliders
-  var google_slider = document.getElementById("google-slider");
-  var google_output = document.getElementById("google-slider-value");
-
-  // Chart JS config for google trends csv
+  // Chart JS config for loading data
   var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
@@ -79,11 +90,41 @@ $( document ).ready(function() {
   	withCredentials: undefined
   }
 
+
+
   // AJAX request to grab the google trends csv
   $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
       google_data = csvdata.data;
     });
+
+
+
+  // Function to show sliders and update accordingly:
+  cdc_output.innerHTML = parseInt(cdc_slider.value) + 2003;
+  cdc_slider.oninput = function() {
+    cdc_output.innerHTML = parseInt(cdc_slider.value) + 2003;
+    updateData(cdc_chart, cdc_data, parseInt(cdc_slider.value), cdc_title);
+  }
+
+  google_output.innerHTML = parseInt(google_slider.value) + 2003;
+  google_slider.oninput = function() {
+    google_output.innerHTML = parseInt(google_slider.value) + 2003;
+    updateData(google_chart, google_data, parseInt(google_slider.value), google_title);
+  }
+
+  guardian_output.innerHTML = parseInt(guardian_slider.value) + 2003;
+  guardian_slider.oninput = function() {
+    guardian_output.innerHTML = parseInt(guardian_slider.value) + 2003;
+    updateData(guardian_chart, guardian_data, parseInt(guardian_slider.value), guardian_title);
+  }
+
+  nyt_output.innerHTML = parseInt(nyt_slider.value) + 2003;
+  nyt_slider.oninput = function() {
+    nyt_output.innerHTML = parseInt(nyt_slider.value) + 2003;
+    updateData(nyt_chart, nyt_data, parseInt(nyt_slider.value), nyt_title);
+  }
+
 
 
   // Abstracted charting function
@@ -160,12 +201,7 @@ $( document ).ready(function() {
     }
   }
 
-  // Function to show google slider and update accordingly
-  google_output.innerHTML = parseInt(google_slider.value) + 2003;
-  google_slider.oninput = function() {
-    google_output.innerHTML = parseInt(google_slider.value) + 2003;
-    updateData(google_chart, google_data, parseInt(google_slider.value), google_title);
-  }
+
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {

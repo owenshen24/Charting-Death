@@ -75,53 +75,95 @@
 
       <p>First off, we need to figure out exactly which deaths we'll be looking at. We'll go with the top 10 causes of death given by the CDC, as well as terrorism, overdoses, and homicide, three other causes which we think are often accused of being overrepresented.</p>
 
-      <p>Our final list of causes:</p>
-
-      <div class="container">
-        <ol>
-        <li>Heart Disease</li>
-        <li>Cancer</li>
-        <li>Lower Respiratory Diesease</li>
-        <li>Car Accidents</li>
-        <li>Stroke</li>
-        <li>Diabetes</li>
-        <li>Alzheimer's Disease</li>
-        <li>Pneumonia & Influenza</li>
-        <li>Kidney</li>
-        <li>Suicide</li>
-        <li>Homicide</li>
-        <li>Terrorism</li>
-        <li>Overdose</li>
-        </ol>
+      <!-- CDC graph -->
+      <div>
+        <div class="container graph">
+          <canvas id="cdc_chart"></canvas>
+        </div>
+        <!-- CDC slider -->
+        <div class="container">
+          <div class="centered">
+            <button>Average Across All Years</button>
+          </div>
+          <!-- Vertical spacer -->
+          <div style="height: 10px"></div>
+          <div class="centered">
+            <input type="range" min="1" max="17" value="1" class="slider" id="cdc-slider">
+            <div class="slider-value">
+              <span>Year: <span id="cdc-slider-value"></span></p></span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div style="height: 25px"></div>
 
       <!-- Google Trends graph -->
-      <div class="container graph">
-        <canvas id="google_chart"></canvas>
-      </div>
-
-      <!-- Google Trends slider -->
-      <div class="container">
-
-        <div class="centered">
-          <button>Average Across All Years</button>
+      <div>
+        <div class="container graph">
+          <canvas id="google_chart"></canvas>
         </div>
-
-        <!-- Vertical spacer -->
-        <div style="height: 10px"></div>
-
-        <div class="centered">
-          <input type="range" min="1" max="13" value="1" class="slider" id="google-slider">
-          <div class="slider-value">
-            <span>Year: <span id="google-slider-value"></span></p></span>
+        <!-- Google Trends slider -->
+        <div class="container">
+          <div class="centered">
+            <button>Average Across All Years</button>
+          </div>
+          <!-- Vertical spacer -->
+          <div style="height: 10px"></div>
+          <div class="centered">
+            <input type="range" min="1" max="13" value="1" class="slider" id="google-slider">
+            <div class="slider-value">
+              <span>Year: <span id="google-slider-value"></span></p></span>
+            </div>
           </div>
         </div>
-
       </div>
 
+      <!-- Guardian graph -->
+      <div>
+        <div class="container graph">
+          <canvas id="guardian_chart"></canvas>
+        </div>
+        <!-- Guardian slider -->
+        <div class="container">
+          <div class="centered">
+            <button>Average Across All Years</button>
+          </div>
+          <!-- Vertical spacer -->
+          <div style="height: 10px"></div>
+          <div class="centered">
+            <input type="range" min="1" max="17" value="1" class="slider" id="guardian-slider">
+            <div class="slider-value">
+              <span>Year: <span id="guardian-slider-value"></span></p></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div style="height: 25px"></div>
+
+      <!-- NYT graph -->
+      <div>
+        <div class="container graph">
+          <canvas id="nyt_chart"></canvas>
+        </div>
+        <!-- NYT slider -->
+        <div class="container">
+          <div class="centered">
+            <button>Average Across All Years</button>
+          </div>
+          <!-- Vertical spacer -->
+          <div style="height: 10px"></div>
+          <div class="centered">
+            <input type="range" min="1" max="17" value="1" class="slider" id="nyt-slider">
+            <div class="slider-value">
+              <span>Year: <span id="nyt-slider-value"></span></p></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="height: 25px"></div>
 
     <!-- End of the container -->
     </div>
