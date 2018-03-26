@@ -117,6 +117,9 @@ $( document ).ready(function() {
           fontSize: 16,
           padding: 20
         },
+        animation {
+          duration: 0
+        },
         scales: {
           yAxes: [{
             beginAtZero:true,
@@ -166,7 +169,7 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
-    
+
     // Clear old data
     chart.data.datasets = [];
 
