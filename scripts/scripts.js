@@ -125,5 +125,5 @@ function chart_data(data, year, chart_id, title) {
 
 // Function to show slider and update accordingly
 $("input").oninput = function() {
-  $(this).next().innerHTML = $(this).value;
+  alert($(this).value);
 }
