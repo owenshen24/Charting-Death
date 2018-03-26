@@ -132,7 +132,7 @@ $( document ).ready(function() {
       }});
 
     switch(canvas_id) {
-      case: google_canvas
+      case google_canvas:
         google_chart = chart;
         break;
     }
