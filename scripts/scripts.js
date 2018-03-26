@@ -173,7 +173,7 @@ $( document ).ready(function() {
         borderWidth: 1,
         backgroundColor: [colors[i]]
       };
-      chart.data.datasets.push(data_arr);
+      chart.data.datasets.push(temp_data);
     }
     // chart.options.title.text: title + data[year]['Year'];
     chart.update();
