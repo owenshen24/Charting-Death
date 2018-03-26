@@ -1,4 +1,4 @@
-
+// Edit these colors later
 var colors = [
   'rgba(77, 157, 224, 1)',
   'rgba(225, 188, 41, 1)',
@@ -33,7 +33,10 @@ var guardian_chart = "#guardian_chart";
 var nyt_chart = "#nyt_chart";
 
 // Variables to refer to our data paths
+var cdc_path = 'data/tp_cdc_n.csv';
 var google_path = 'data/tp_google_trends_n.csv';
+var guardian_path = 'data/tp_guardian_n.csv';
+var nyt_path = 'data/tp_nyt_n.csv';
 
 // Chart JS config for google trends csv
 var google_config = {
@@ -49,7 +52,7 @@ var google_config = {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(results.data, 1, google_chart);
+      chart_data(results.data, 1, google_chart, "Google Trends: ");
      },
   	error: undefined,
   	download: false,
@@ -62,13 +65,13 @@ var google_config = {
 
 // AJAX request to grab the google trends csv
 $.get(google_path, function (data) {
-      var csvdata = Papa.parse(data, google_config);
-      google_data = csvdata;
+    var csvdata = Papa.parse(data, google_config);
+    google_data = csvdata;
   });
 
 
 // Abstracted charting function
-function chart_data(data, year, chart_id) {
+function chart_data(data, year, chart_id, title) {
   label_list = [];
   data_list = [];
 
@@ -94,7 +97,7 @@ function chart_data(data, year, chart_id) {
     options: {
       title: {
         display: true,
-        text: data[year]['Year']
+        text: title + data[year]['Year']
       },
       scales: {
         yAxes: [{
@@ -119,3 +122,8 @@ function chart_data(data, year, chart_id) {
 
 
 });
+
+// Function to show slider and update accordingly
+$("input").oninput = function() {
+  $(this).next().innerHTML = $(this).value;
+}
