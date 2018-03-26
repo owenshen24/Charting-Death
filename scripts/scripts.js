@@ -166,7 +166,6 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
-    var data_arr = [];
     for (var i = 0; i < 13; i++) {
       var temp_data = {
         label: data_list[0][i],
@@ -174,9 +173,8 @@ $( document ).ready(function() {
         borderWidth: 1,
         backgroundColor: [colors[i]]
       };
-      data_arr.push(temp_data);
+      chart.data.datasets.push(data_arr);
     }
-    chart.data.datasets.push(data_arr);
     // chart.options.title.text: title + data[year]['Year'];
     chart.update();
   }
