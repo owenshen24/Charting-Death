@@ -136,7 +136,7 @@ google_slider.oninput = function() {
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value + 2003;
+output.innerHTML = parseInt(slider.value) + 2003;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
