@@ -117,16 +117,21 @@ function chart_data(data, year, chart_id, title) {
           display: true,
           position: 'left',
           labels: {
-            fontSize: 14
+            padding: 5,
+            boxWidth: 20
           }
         }
     }});
   }
 
   // Function to show slider and update accordingly
-  $('input[type=range]').on('input', function () {
-      alert("HEY");
-  });
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+  slider.oninput = function() {
+  output.innerHTML = this.value;
+  }
+
 
 // Ending of the document-ready mega-function
 });
