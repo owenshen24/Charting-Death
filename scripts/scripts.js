@@ -180,7 +180,7 @@ $( document ).ready(function() {
       };
       chart.data.datasets.push(temp_data);
     }
-    chart.options.title['text'] = title + data[year]['Year'];
+    chart.options.title['text'] = title + data_list[year]['Year'];
     chart.update();
   }
 
