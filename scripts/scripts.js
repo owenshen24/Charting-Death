@@ -22,6 +22,7 @@ var google_data = undefined;
 var nyt_data = undefined;
 var guardian_data = undefined;
 
+// Load once the page is ready
 $( document ).ready(function() {
 
 // Variables to refer to our chart selectors
@@ -33,6 +34,7 @@ var nyt_chart = "#nyt_chart";
 // Variables to refer to our data paths
 var google_path = 'data/tp_google_trends_normalized.csv';
 
+// Chart JS config for google trends csv
 var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
@@ -57,6 +59,7 @@ var google_config = {
   	withCredentials: undefined
   }
 
+// AJAX request to grab the google trends csv
 $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
       google_data = csvdata;
