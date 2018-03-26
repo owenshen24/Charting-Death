@@ -56,28 +56,28 @@ $( document ).ready(function() {
 
   // Chart JS config for google trends csv
   var google_config = {
-    	delimiter: "",	// auto-detect
-    	newline: "",	// auto-detect
-    	quoteChar: '"',
-    	escapeChar: '"',
-    	header: true,
-    	dynamicTyping: false,
-    	preview: 0,
-    	encoding: "",
-    	worker: false,
-    	comments: false,
-    	step: undefined,
-    	complete: function(results) {
-        chart_data(results.data, 1, google_canvas, google_title);
-       },
-    	error: undefined,
-    	download: false,
-    	skipEmptyLines: false,
-    	chunk: undefined,
-    	fastMode: undefined,
-    	beforeFirstChunk: undefined,
-    	withCredentials: undefined
-    }
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: function(results) {
+      chart_data(results.data, 1, google_canvas, google_title);
+     },
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
 
   // AJAX request to grab the google trends csv
   $.get(google_path, function (data) {
@@ -166,6 +166,12 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
+    // Clear old data
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+    });
+
+    // Add new data
     for (var i = 0; i < 13; i++) {
       var temp_data = {
         label: data_list[0][i],
