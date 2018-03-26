@@ -33,7 +33,7 @@ var guardian_chart = "#guardian_chart";
 var nyt_chart = "#nyt_chart";
 
 // Variables to refer to our data paths
-var google_path = 'data/tp_google_trends_normalized.csv';
+var google_path = 'data/tp_google_trends_n.csv';
 
 // Chart JS config for google trends csv
 var google_config = {
