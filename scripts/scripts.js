@@ -134,6 +134,13 @@ google_slider.oninput = function() {
   google_output.innerHTML = year;
 }
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value + 2003;
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
 
 // Ending of the document-ready mega-function
 });
