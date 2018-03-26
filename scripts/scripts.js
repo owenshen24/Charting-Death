@@ -125,14 +125,13 @@ function chart_data(data, year, chart_id, title) {
     }});
   }
 
-  // Function to show slider and update accordingly
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
-
-  slider.oninput = function() {
-    output.innerHTML = this.value;
-  }
+// Function to show slider and update accordingly
+var google_slider = $("#google-slider");
+var google_output = $("#google-slider-value");
+google_output.innerHTML = google_slider.value;
+google_slider.oninput = function() {
+  google_output.innerHTML = (this.value + 2003);
+}
 
 
 // Ending of the document-ready mega-function
