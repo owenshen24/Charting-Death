@@ -127,8 +127,10 @@ function chart_data(data, year, chart_id, title) {
 
   // Function to show slider and update accordingly
   var slider = $(".google-slider");
+  var output = $(".google-slider-value");
+  output.innerHTML = slider.value;
   slider.oninput = function() {
-    $(".google-slider-value").innerHTML = this.value;
+    output.innerHTML = this.value;
   }
 
 
