@@ -118,7 +118,7 @@ function chart_data(data, year, chart_id, title) {
           position: 'left',
           labels: {
             padding: 5,
-            boxWidth: 20,
+            boxWidth: 30,
             fontSize: 14
           }
         }
@@ -126,12 +126,7 @@ function chart_data(data, year, chart_id, title) {
   }
 
   // Function to show slider and update accordingly
-  var slider = $(".google-slider");
-  var output = $(".google-slider-value");
-  output.innerHTML = slider.value;
-  slider.oninput = function() {
-    output.innerHTML = this.value;
-  }
+
 
 
 // Ending of the document-ready mega-function
