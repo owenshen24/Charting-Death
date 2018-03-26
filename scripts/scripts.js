@@ -115,7 +115,10 @@ function chart_data(data, year, chart_id, title) {
         },
         legend: {
           display: true,
-          position: 'right'
+          position: 'left',
+          labels {
+            fontSize: 14
+          }
         }
     }});
   }
