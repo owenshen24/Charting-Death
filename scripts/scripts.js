@@ -169,7 +169,6 @@ $( document ).ready(function() {
 
   // Updates a graph
   function updateData(chart, data_list, year, title) {
-
     // Clear old data
     chart.data.datasets = [];
 

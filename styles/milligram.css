@@ -369,13 +369,10 @@ input[type='radio'] {
 }
 
 a {
-  color: #9b4dca;
-  text-decoration: none;
-}
-
-a:focus, a:hover {
-  color: #606c76;
-}
+  color: #1EAEDB; }
+  
+a:hover {
+  color: #0FA0CE; }
 
 dl,
 ol,
