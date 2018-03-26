@@ -162,8 +162,8 @@ $( document ).ready(function() {
   function addData(chart, data) {
     for (var i = 0; i < 13; i++) {
       dataset.data.push(data);
-      datasets.borderWidth: 1,
-      dataset.backgroundColor: [colors[i]]
+      datasets.borderWidth: 1;
+      dataset.backgroundColor: [colors[i]];
     }
     chart.update();
   }
