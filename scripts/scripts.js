@@ -117,7 +117,7 @@ $( document ).ready(function() {
           fontSize: 16,
           padding: 20
         },
-        animation {
+        animation: {
           duration: 0
         },
         scales: {
