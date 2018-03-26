@@ -98,7 +98,7 @@ function chart_data(data, year, chart_id, title) {
       title: {
         display: true,
         text: title + data[year]['Year'],
-        fontSize: 14
+        fontSize: 16
       },
       scales: {
         yAxes: [{
@@ -115,7 +115,7 @@ function chart_data(data, year, chart_id, title) {
         },
         legend: {
           display: true,
-          position: 'left'
+          position: 'right'
         }
     }});
   }
