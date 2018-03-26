@@ -125,6 +125,6 @@ function chart_data(data, year, chart_id, title) {
 });
 
 // Function to show slider and update accordingly
-$("input").oninput = function() {
-  alert($(this).value);
-}
+$('input[type=range]').on('input', function () {
+    alert("HEY");
+});
