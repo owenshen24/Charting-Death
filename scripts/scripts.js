@@ -17,13 +17,19 @@ var colors = [
   'rgba(242, 233, 78, 1)'
 ]
 
-// Variables to store our csv data as a JS Object
+// Variables to refer to our data paths
+var cdc_path = 'data/tp_cdc_n.csv';
+var google_path = 'data/tp_google_trends_n.csv';
+var guardian_path = 'data/tp_guardian_n.csv';
+var nyt_path = 'data/tp_nyt_n.csv';
+
+// Variables to store our csv data as a JS Object for easy reference later
 var cdc_data = undefined;
 var google_data = undefined;
 var nyt_data = undefined;
 var guardian_data = undefined;
 
-// Variables to store our charts as a JS Object
+// Variables to store our charts as a JS Object for easy reference later
 var cdc_chart = undefined;
 var google_chart = undefined;
 var nyt_chart = undefined;
@@ -38,11 +44,9 @@ $( document ).ready(function() {
   var guardian_canvas = "#guardian_chart";
   var nyt_canvas = "#nyt_chart";
 
-  // Variables to refer to our data paths
-  var cdc_path = 'data/tp_cdc_n.csv';
-  var google_path = 'data/tp_google_trends_n.csv';
-  var guardian_path = 'data/tp_guardian_n.csv';
-  var nyt_path = 'data/tp_nyt_n.csv';
+  // Variables to refer to our chart sliders
+  var google_slider = document.getElementById("google-slider");
+  var google_output = document.getElementById("google-slider-value");
 
   // Chart JS config for google trends csv
   var google_config = {
@@ -85,7 +89,7 @@ $( document ).ready(function() {
     for (var i = 0; i < 13; i++) {
       label_list.push(data[0][i]);
       var temp_data = {
-        label: data[0][i],
+        label: data[year]['Year'],
         data: [data[year][i]],
         borderWidth: 1,
         backgroundColor: [colors[i]]
@@ -135,25 +139,33 @@ $( document ).ready(function() {
       case google_canvas:
         google_chart = chart;
         break;
+      case cdc_canvas:
+        cdc_chart = chart;
+        break;
+      case nyt_canvas:
+        nyt_chart = chart;
+        break;
+      case guardian_canvas:
+        guardian_chart = chart;
+        break;
     }
   }
 
-  // Function to show slider and update accordingly
-  var google_slider = document.getElementById("google-slider");
-  var google_output = document.getElementById("google-slider-value");
+  // Function to show google slider and update accordingly
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
-
   google_slider.oninput = function() {
     google_output.innerHTML = parseInt(google_slider.value) + 2003;
-    addData(google_chart, ['Test'], [1]);
+    addData(google_chart, google_data[parseInt(google_slider.value)]);
   }
 
-  function addData(chart, label, data) {
-      chart.data.labels.push(label);
-      chart.data.datasets.forEach((dataset) => {
-          dataset.data.push(data);
-      });
-      chart.update();
+  // Updates a graph
+  function addData(chart, data) {
+    for (var i = 0; i < 13; i++) {
+      dataset.data.push(data);
+      datasets.borderWidth: 1,
+      dataset.backgroundColor: [colors[i]]
+    }
+    chart.update();
   }
 
 // Ending of the document-ready mega-function
