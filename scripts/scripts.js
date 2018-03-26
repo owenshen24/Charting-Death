@@ -127,19 +127,11 @@ function chart_data(data, year, chart_id, title) {
   }
 
 // Function to show slider and update accordingly
-var google_slider = $("#google-slider");
-var google_output = $("#google-slider-value");
-google_output.innerHTML = google_slider.value;
+var google_slider = document.getElementById("google-slider");
+var google_output = document.getElementById("google-slider-value");
+google_output.innerHTML = parseInt(google_slider.value) + 2003;
 google_slider.oninput = function() {
-  var year = this.value + 2003;
-  google_output.innerHTML = year;
-}
-
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = parseInt(slider.value) + 2003;
-slider.oninput = function() {
-  output.innerHTML = this.value;
+  google_output.innerHTML = parseInt(google_slider.value) + 2003;
 }
 
 
