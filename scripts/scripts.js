@@ -130,7 +130,8 @@ var google_slider = $("#google-slider");
 var google_output = $("#google-slider-value");
 google_output.innerHTML = google_slider.value;
 google_slider.oninput = function() {
-  google_output.innerHTML = (this.value + 2003);
+  var year = this.value + 2003;
+  google_output.innerHTML = year;
 }
 
 
