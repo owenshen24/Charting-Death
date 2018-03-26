@@ -126,7 +126,13 @@ function chart_data(data, year, chart_id, title) {
   }
 
   // Function to show slider and update accordingly
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
 
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
 
 
 // Ending of the document-ready mega-function
