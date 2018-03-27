@@ -53,6 +53,30 @@ var nyt_canvas = "#nyt_chart";
 $( document ).ready(function() {
 
   // Chart JS config for loading data
+  var cdc_config = {
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: function(results) {
+      chart_data(results.data, 1, cdc_canvas, cdc_title);
+     },
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
+
   var google_config = {
   	delimiter: "",	// auto-detect
   	newline: "",	// auto-detect
@@ -77,13 +101,77 @@ $( document ).ready(function() {
   	withCredentials: undefined
   }
 
+  var guardian_config = {
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: function(results) {
+      chart_data(results.data, 1, guardian_canvas, guardian_title);
+     },
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
+
+  var nyt_config = {
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: function(results) {
+      chart_data(results.data, 1, nyt_canvas, nyt_title);
+     },
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
 
 
-  // AJAX request to grab the google trends csv
+
+  // AJAX request to grab the data CSVs
+  $.get(cdc_path, function (data) {
+      var csvdata = Papa.parse(data, cdc_config);
+      cdc_data = csvdata.data;
+  });
+
   $.get(google_path, function (data) {
       var csvdata = Papa.parse(data, google_config);
       google_data = csvdata.data;
-    });
+  });
+
+  $.get(guardian_path, function (data) {
+        var csvdata = Papa.parse(data, guardian_config);
+        guardian_data = csvdata.data;
+  });
+
+  $.get(nyt_path, function (data) {
+      var csvdata = Papa.parse(data, nyt_config);
+      nyt_data = csvdata.data;
+  });
+
 
 
   // Variables to refer to our chart sliders
@@ -99,10 +187,12 @@ $( document ).ready(function() {
   var nyt_slider = document.getElementById("nyt-slider");
   var nyt_output = document.getElementById("nyt-slider-value");
 
+
+
   // Function to show sliders and update accordingly:
-  cdc_output.innerHTML = parseInt(cdc_slider.value) + 2003;
+  cdc_output.innerHTML = parseInt(cdc_slider.value) + 1998;
   cdc_slider.oninput = function() {
-    cdc_output.innerHTML = parseInt(cdc_slider.value) + 2003;
+    cdc_output.innerHTML = parseInt(cdc_slider.value) + 1998;
     updateData(cdc_chart, cdc_data, parseInt(cdc_slider.value), cdc_title);
   }
 
@@ -112,15 +202,15 @@ $( document ).ready(function() {
     updateData(google_chart, google_data, parseInt(google_slider.value), google_title);
   }
 
-  guardian_output.innerHTML = parseInt(guardian_slider.value) + 2003;
+  guardian_output.innerHTML = parseInt(guardian_slider.value) + 1998;
   guardian_slider.oninput = function() {
-    guardian_output.innerHTML = parseInt(guardian_slider.value) + 2003;
+    guardian_output.innerHTML = parseInt(guardian_slider.value) + 1998;
     updateData(guardian_chart, guardian_data, parseInt(guardian_slider.value), guardian_title);
   }
 
-  nyt_output.innerHTML = parseInt(nyt_slider.value) + 2003;
+  nyt_output.innerHTML = parseInt(nyt_slider.value) + 1998;
   nyt_slider.oninput = function() {
-    nyt_output.innerHTML = parseInt(nyt_slider.value) + 2003;
+    nyt_output.innerHTML = parseInt(nyt_slider.value) + 1998;
     updateData(nyt_chart, nyt_data, parseInt(nyt_slider.value), nyt_title);
   }
 
