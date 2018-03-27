@@ -248,7 +248,7 @@ $( document ).ready(function() {
           padding: 30
         },
         animation: {
-          duration: 100
+          duration: 0
         },
         scales: {
           yAxes: [{
@@ -267,7 +267,7 @@ $( document ).ready(function() {
             display: true,
             position: 'left',
             labels: {
-              padding: 5,
+              padding: 10,
               boxWidth: 30,
               fontSize: 12
             }
