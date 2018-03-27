@@ -244,8 +244,8 @@ $( document ).ready(function() {
         title: {
           display: true,
           text: title + data[year]['Year'],
-          fontSize: 16,
-          padding: 20
+          fontSize: 18,
+          padding: 30
         },
         animation: {
           duration: 0
