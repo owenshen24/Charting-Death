@@ -66,7 +66,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(results.data, 1, cdc_canvas, cdc_title);
+      make_bar_graph(results.data, 1, cdc_canvas, cdc_title);
      },
   	error: undefined,
   	download: false,
@@ -90,7 +90,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(results.data, 1, google_canvas, google_title);
+      make_bar_graph(results.data, 1, google_canvas, google_title);
      },
   	error: undefined,
   	download: false,
@@ -114,7 +114,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(results.data, 1, guardian_canvas, guardian_title);
+      make_bar_graph(results.data, 1, guardian_canvas, guardian_title);
      },
   	error: undefined,
   	download: false,
@@ -138,7 +138,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      chart_data(results.data, 1, nyt_canvas, nyt_title);
+      make_bar_graph(results.data, 1, nyt_canvas, nyt_title);
      },
   	error: undefined,
   	download: false,
@@ -217,7 +217,7 @@ $( document ).ready(function() {
 
 
   // Abstracted charting function
-  function chart_data(data, year, canvas_id, title) {
+  function make_bar_graph(data, year, canvas_id, title) {
     label_list = [];
     data_list = [];
 
@@ -248,7 +248,7 @@ $( document ).ready(function() {
           padding: 30
         },
         animation: {
-          duration: 0
+          duration: 100
         },
         scales: {
           yAxes: [{
@@ -265,11 +265,11 @@ $( document ).ready(function() {
           },
           legend: {
             display: true,
-            position: 'bottom',
+            position: 'left',
             labels: {
               padding: 5,
               boxWidth: 30,
-              fontSize: 14
+              fontSize: 12
             }
           }
       }});
