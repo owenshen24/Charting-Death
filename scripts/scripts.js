@@ -199,7 +199,7 @@ $( document ).ready(function() {
   }
   cdc_average_button.onclick = function() {
     cdc_output.innerHTML = 'Average Across All Years';
-    updateData(cdc_chart, cdc_data, 'Year', cdc_title);
+    updateData(cdc_chart, cdc_data, 'Average', cdc_title);
   }
 
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
