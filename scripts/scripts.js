@@ -4,15 +4,15 @@ var colors = [
   'rgba(225, 188, 41, 1)',
   'rgba(255, 133, 82, 1)',
   'rgba(59, 178, 115, 1)',
-  'rgba(63, 182, 186, 1);',
-  'rgba(242, 191, 87, 1);',
-  'rgba(224, 81, 213, 1);',
-  'rgba(76, 92, 173, 1);',
-  'rgba(168, 41, 130, 1);',
-  'rgba(237, 121, 219, 1);',
-  'rgba(250, 191, 240, 1);',
-  'rgba(130, 226, 255, 1);',
-  'rgba(101, 182, 255, 1);'
+  'rgba(63, 182, 186, 1)',
+  'rgba(242, 191, 87, 1)',
+  'rgba(224, 81, 213, 1)',
+  'rgba(76, 92, 173, 1)',
+  'rgba(168, 41, 130, 1)',
+  'rgba(237, 121, 219, 1)',
+  'rgba(250, 191, 240, 1)',
+  'rgba(130, 226, 255, 1)',
+  'rgba(101, 182, 255, 1)'
 ]
 
 // Variables to refer to our data paths
@@ -265,7 +265,7 @@ $( document ).ready(function() {
             display: true,
             position: 'left',
             labels: {
-              padding: 10,
+              padding: 5,
               boxWidth: 30,
               fontSize: 12
             }
