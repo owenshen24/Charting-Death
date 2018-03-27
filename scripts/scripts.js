@@ -198,8 +198,8 @@ $( document ).ready(function() {
     updateData(cdc_chart, cdc_data, parseInt(cdc_slider.value), cdc_title);
   }
   cdc_average_button.onclick = function() {
-    cdc_output.innerHTML = 'Average Across All Years';
-    updateData(cdc_chart, cdc_data, 14, cdc_title);
+    cdc_output.innerHTML = 'Average';
+    updateData(cdc_chart, cdc_data, 19, cdc_title);
   }
 
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
