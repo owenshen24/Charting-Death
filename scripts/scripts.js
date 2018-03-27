@@ -265,7 +265,7 @@ $( document ).ready(function() {
           },
           legend: {
             display: true,
-            position: 'left',
+            position: 'bottom',
             labels: {
               padding: 5,
               boxWidth: 30,
