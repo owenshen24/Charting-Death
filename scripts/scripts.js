@@ -207,17 +207,29 @@ $( document ).ready(function() {
     google_output.innerHTML = parseInt(google_slider.value) + 2003;
     updateData(google_chart, google_data, parseInt(google_slider.value), google_title);
   }
+  google_average_button.onclick = function() {
+    google_output.innerHTML = 'Average';
+    updateData(google_chart, google_data, 14, google_title);
+  }
 
   guardian_output.innerHTML = parseInt(guardian_slider.value) + 1998;
   guardian_slider.oninput = function() {
     guardian_output.innerHTML = parseInt(guardian_slider.value) + 1998;
     updateData(guardian_chart, guardian_data, parseInt(guardian_slider.value), guardian_title);
   }
+  guardian_average_button.onclick = function() {
+    guardian_output.innerHTML = 'Average';
+    updateData(guardian_chart, guardian_data, 19, guardian_title);
+  }
 
   nyt_output.innerHTML = parseInt(nyt_slider.value) + 1998;
   nyt_slider.oninput = function() {
     nyt_output.innerHTML = parseInt(nyt_slider.value) + 1998;
     updateData(nyt_chart, nyt_data, parseInt(nyt_slider.value), nyt_title);
+  }
+  nyt_average_button.onclick = function() {
+    nyt_output.innerHTML = 'Average';
+    updateData(nyt_chart, nyt_data, 19, nyt_title);
   }
 
 
