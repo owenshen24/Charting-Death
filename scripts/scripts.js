@@ -174,15 +174,19 @@ $( document ).ready(function() {
 
   // Variables to refer to our chart sliders
   var cdc_slider = document.getElementById("cdc-slider");
+  var cdc_average_button = document.getElementById("cdc-slider-average-button");
   var cdc_output = document.getElementById("cdc-slider-value");
 
   var google_slider = document.getElementById("google-slider");
+  var google_average_button = document.getElementById("google-slider-average-button");
   var google_output = document.getElementById("google-slider-value");
 
   var guardian_slider = document.getElementById("guardian-slider");
+  var guardian_average_button = document.getElementById("guardian-slider-average-button");
   var guardian_output = document.getElementById("guardian-slider-value");
 
   var nyt_slider = document.getElementById("nyt-slider");
+  var nyt_average_button = document.getElementById("nyt-slider-average-button");
   var nyt_output = document.getElementById("nyt-slider-value");
 
 
@@ -192,6 +196,10 @@ $( document ).ready(function() {
   cdc_slider.oninput = function() {
     cdc_output.innerHTML = parseInt(cdc_slider.value) + 1998;
     updateData(cdc_chart, cdc_data, parseInt(cdc_slider.value), cdc_title);
+  }
+  cdc_average_button.onclick = function() {
+    cdc_output.innerHTML = 'Average Across All Years';
+    updateData(cdc_chart, cdc_data, 'Year', cdc_title);
   }
 
   google_output.innerHTML = parseInt(google_slider.value) + 2003;
