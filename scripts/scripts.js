@@ -189,6 +189,10 @@ $( document ).ready(function() {
   var nyt_average_button = document.getElementById("nyt-slider-average-button");
   var nyt_output = document.getElementById("nyt-slider-value");
 
+  var all_slider = document.getElementById("all-slider");
+  var all_average_button = document.getElementById("all-slider-average-button");
+  var all_output = document.getElementById("all-slider-value");
+
 
 
   // Function to show sliders and update accordingly:
@@ -230,6 +234,19 @@ $( document ).ready(function() {
   nyt_average_button.onclick = function() {
     nyt_output.innerHTML = 'Average';
     updateData(nyt_chart, nyt_data, 19, nyt_title);
+  }
+
+  // Graphs the average function
+  all_output.innerHTML = parseInt(all_slider.value) + 1998;
+  all_slider.oninput = function() {
+    all_output.innerHTML = parseInt(all_slider.value) + 1998;
+    var image_path = "images/graphs/" + parseInt(all_slider.value) + 1998 + "_all.png"
+    $("#all-image-graph").attr("src",image_path);
+  }
+  all_average_button.onclick = function() {
+    all_output.innerHTML = 'Average';
+    var image_path = "images/graphs/average_all.png"
+    $("#all-image-graph").attr("src",image_path);
   }
 
 

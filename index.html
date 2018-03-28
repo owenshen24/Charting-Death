@@ -47,24 +47,21 @@
 
       <p>Alternatively, how do people <em>think</em> we die?</p>
 
-      <p>Well, it turns out there's a <a href="http://journals.sagepub.com/doi/abs/10.1177/107769907905600420?journalCode=jmqb">fascinating study done by Slovic and Comb</a> where they looked at how often different types of deaths were mentioned in the news. They then compared the frequency of news coverage with the actual frequency of people who died for each cause.</p>
+      <p>Well, it turns out there's a <a href="http://journals.sagepub.com/doi/abs/10.1177/107769907905600420?journalCode=jmqb">fascinating study</a> done by Paul Slovic and Barbara Combs where they looked at how often different types of deaths were mentioned in the news. They then compared the frequency of news coverage with the actual frequency of people who died for each cause.</p>
 
       <p>The results are what you might cynically expect: </p>
 
       <blockquote>
-      <p>"Although all diseases claim almost 1,OOO times as many lives as do homicides. there were about three times as many articles about homicides than about all diseases. Furthermore. homicide articles tended to be more than twice as long as articles reporting deaths from diseases and accidents."</p>
+      <p><em>"Although all diseases claim almost 1,OOO times as many lives as do homicides. there were about three times as many articles about homicides than about all diseases. Furthermore. homicide articles tended to be more than twice as long as articles reporting deaths from diseases and accidents."</em></p>
       </blockquote>
 
-      <p>
-        Since 1979, when the original Combs and Slovic study was conducted, there have been several more empirical analyses which have found largely similar results. (Notably, <a href="https://www.ncbi.nlm.nih.gov/pubmed/18281322">here</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2569209/">here</a>)
+      <p>Since 1979, when the original Combs and Slovic study was conducted, there have been several more empirical analyses which have found largely similar results. (Notably, <a href="https://www.ncbi.nlm.nih.gov/pubmed/18281322">here</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2569209/">here</a>)
       </p>
 
-      <p>
-        For our final capstone project in the phenomenal <a href="http://darb.ketyov.com/entertainment">Bradley Voytek's</a> COGS 108 course at UCSD, we thought it would be interesting to try our hands at our own attempt, putting to use some of our newfound skills.
+      <p>For our final capstone project in the phenomenal <a href="http://darb.ketyov.com/home">Bradley Voytek's</a> COGS 108 course at UCSD, we thought it would be interesting for us to have our own go at examining potential disparities between actual deaths and their corresponding media attention.
       </p>
 
-      <p>
-        For anyone curious about any of the steps throughout this project, the original data and code we used to do all this analysis is available here-LINK on GitHub.
+      <p>For anyone curious about any of the steps throughout this project, the original data and code we used to do all this analysis is available here-LINK on GitHub.
       </p>
 
       <hr />
@@ -83,12 +80,12 @@
         <div class="container">
           <div class="centered">
             <input type="range" min="1" max="18" value="1" class="slider" id="cdc-slider">
+            <!-- Vertical spacer -->
+            <div style="height: 10px"></div>
             <div class="slider-value">
               <span>Year: <span id="cdc-slider-value"></span></p></span>
             </div>
           </div>
-          <!-- Vertical spacer -->
-          <div style="height: 10px"></div>
           <div class="centered">
             <button id="cdc-slider-average-button">Average Across All Years</button>
           </div>
@@ -106,12 +103,12 @@
         <div class="container">
           <div class="centered">
             <input type="range" min="1" max="13" value="1" class="slider" id="google-slider">
+            <!-- Vertical spacer -->
+            <div style="height: 10px"></div>
             <div class="slider-value">
               <span>Year: <span id="google-slider-value"></span></p></span>
             </div>
           </div>
-          <!-- Vertical spacer -->
-          <div style="height: 10px"></div>
           <div class="centered">
             <button id="google-slider-average-button">Average Across All Years</button>
           </div>
@@ -129,12 +126,12 @@
         <div class="container">
           <div class="centered">
             <input type="range" min="1" max="18" value="1" class="slider" id="guardian-slider">
+            <!-- Vertical spacer -->
+            <div style="height: 10px"></div>
             <div class="slider-value">
               <span>Year: <span id="guardian-slider-value"></span></p></span>
             </div>
           </div>
-          <!-- Vertical spacer -->
-          <div style="height: 10px"></div>
           <div class="centered">
             <button id="guardian-slider-average-button">Average Across All Years</button>
           </div>
@@ -152,12 +149,12 @@
         <div class="container">
           <div class="centered">
             <input type="range" min="1" max="18" value="1" class="slider" id="nyt-slider">
+            <!-- Vertical spacer -->
+            <div style="height: 10px"></div>
             <div class="slider-value">
               <span>Year: <span id="nyt-slider-value"></span></p></span>
             </div>
           </div>
-          <!-- Vertical spacer -->
-          <div style="height: 10px"></div>
           <div class="centered">
             <button id="nyt-slider-average-button">Average Across All Years</button>
           </div>
@@ -165,6 +162,25 @@
       </div>
 
       <div style="height: 50px"></div>
+
+      <!-- All of the data -->
+      <div class="centered container">
+        <img id="all-image-graph" src="images/graphs/1999_all.png" />
+        <!-- All slider -->
+        <div class="container">
+          <div class="centered">
+            <input type="range" min="1" max="18" value="1" class="slider" id="all-slider">
+            <!-- Vertical spacer -->
+            <div style="height: 10px"></div>
+            <div class="slider-value">
+              <span>Year: <span id="all-slider-value"></span></p></span>
+            </div>
+          </div>
+          <div class="centered">
+            <button id="all-slider-average-button">Average Across All Years</button>
+          </div>
+        </div>
+      </div>
 
     <!-- End of the container -->
     </div>
