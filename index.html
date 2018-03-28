@@ -36,7 +36,12 @@
       </div>
 
       <!-- HEADING -->
-      <h1 class="centered" id="deaths-reality-vs-reported">Death: Reality vs Reported</h1>
+      <h1 class="centered">Death: Reality vs Reported</h1>
+
+      <div class="author-text">
+        <p>Site and writeup done by <a href="https://github.com/owenshen24">Owen Shen</a>.
+Data collection and analysis done by <a href="https://github.com/haljamaly">Hasan Al-Jamaly</a>, <a href="https://github.com/phi1eas">Maximillian Siemers</a>, <a href="https://github.com/owenshen24">Owen Shen</a>, and <a href="https://github.com/stonecoldnicole">Nicole Stone</a>.</p>
+      </div>
 
       <hr />
 
@@ -45,11 +50,13 @@
 
       <p>How do people die?</p>
 
-      <p>Alternatively, how do people <em>think</em> we die?</p>
+      <p>How do people <em>think</em> we die?</p>
 
-      <p>Well, it turns out there's a <a href="http://journals.sagepub.com/doi/abs/10.1177/107769907905600420?journalCode=jmqb">fascinating study</a> done by Paul Slovic and Barbara Combs where they looked at how often different types of deaths were mentioned in the news. They then compared the frequency of news coverage with the actual frequency of people who died for each cause.</p>
+      <p>And is there a difference?</p>
 
-      <p>The results are what you might cynically expect: </p>
+      <p>Well, it turns out there's a <a href="http://journals.sagepub.com/doi/abs/10.1177/107769907905600420?journalCode=jmqb">fascinating study</a> conducted by Paul Slovic and Barbara Combs where they looked at how often different types of deaths were mentioned in the news. They then compared the frequency of news coverage with the actual frequency of people who died for each cause.</p>
+
+      <p>The results are what one might cynically expect: </p>
 
       <blockquote>
       <p><em>"Although all diseases claim almost 1,OOO times as many lives as do homicides. there were about three times as many articles about homicides than about all diseases. Furthermore. homicide articles tended to be more than twice as long as articles reporting deaths from diseases and accidents."</em></p>
@@ -58,18 +65,36 @@
       <p>Since 1979, when the original Combs and Slovic study was conducted, there have been several more empirical analyses which have found largely similar results. (Notably, <a href="https://www.ncbi.nlm.nih.gov/pubmed/18281322">here</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2569209/">here</a>)
       </p>
 
-      <p>For our final capstone project in the phenomenal <a href="http://darb.ketyov.com/home">Bradley Voytek's</a> COGS 108 course at UCSD, we thought it would be interesting for us to have our own go at examining potential disparities between actual deaths and their corresponding media attention.
+      <p>For our final capstone project in for the fantastic <a href="http://darb.ketyov.com/home">Bradley Voytek's</a> COGS 108 course at UCSD, we thought it would be interesting for us to have our own go at examining potential disparities between actual deaths and their corresponding media attention.
       </p>
 
-      <p>For anyone curious about any of the steps throughout this project, the original data and code we used to do all this analysis is available here-LINK on GitHub.
+      <p>For anyone curious about any of the steps throughout this project, the original data and code we used to do all this analysis is available <a href="https://github.com/owenshen24/charting-death-analysis">here on GitHub</a>.
       </p>
 
       <hr />
 
       <!-- DATA GATHERING -->
-      <h2 id="data-the-gathering">Data: The Gathering</h2>
+      <h2>Data: The Gathering</h2>
 
-      <p>First off, we need to figure out exactly which deaths we'll be looking at. We'll go with the top 10 causes of death given by the CDC, as well as terrorism, overdoses, and homicide, three other causes which we think are often accused of being overrepresented.</p>
+      <p>For our project, we looked at four sources:</p>
+        <ol>
+        <li><a href="https://wonder.cdc.gov/">The Center for Disease Control’s WONDER database for public health data</a> (1999-2016).</li>
+        <li><a href="https://github.com/GeneralMills/pytrends">Google Trends search volume</a> (2004-2016). </li>
+        <li><a href="http://open-platform.theguardian.com/">The Guardian’s article database</a>. </li>
+        <li><a href="https://developer.nytimes.com/">The New York Times’ article database</a>. </li>
+        </ol>
+
+        <p>
+           For all of the above data, we looked at the top 10 largest causes of mortality, as well as terrorism, overdoses, and homicides, three other causes of death which we believe receive a lot of media attention.
+        </p>
+
+        <p>
+          In all the charts below, we’ve normalized their value by dividing by the sum of all values for that year. Thus, the values given represent their relative share, rather than absolute counts. This is mainly to make comparisons between distributions easier, as what we really care about here is the proportionality in representation across different sources.
+        </p>
+
+        <p>
+          First off, as our “ground truth”, we’ll look at the causes of mortality as given by the CDC.
+        </p>
 
       <!-- CDC graph -->
       <div>
@@ -92,7 +117,15 @@
         </div>
       </div>
 
+      <p>
+        Immediately, we can see that cancer and heart disease take up a major chunk of all deaths, each responsible for around 30% of the total death count. On the graph, everything is visible except for terrorism, which is so small it doesn’t show up unless we zoom in (You can do this by clicking on different causes in the legend to “strike them out” from the graph).
+      </p>
+
       <div style="height: 50px"></div>
+
+      <p>
+        Next, here’s the Google Trends data. (Because Google Trends didn’t start until 2004, we alas aren’t able to explore search data from 1999-2003.)
+      </p>
 
       <!-- Google Trends graph -->
       <div>
@@ -115,7 +148,15 @@
         </div>
       </div>
 
+      <p>
+        The two major changes here seem to be that heart disease is underrepresented here, and terrorism is very much overrepresented. Suicide also looks like it has several times more relative share here than compared to the actual death rate. The rest of the causes look like they’re within the right order of magnitude as the CDC data.
+      </p>
+
       <div style="height: 50px"></div>
+
+      <p>
+        Now here’s the data for The Guardian and The New York Times. We put them both below as they appear quite similar. (We’ll be able to quantify the degree of similarity in the next section.)
+      </p>
 
       <!-- Guardian graph -->
       <div>
@@ -138,7 +179,7 @@
         </div>
       </div>
 
-      <div style="height: 50px"></div>
+      <!-- <div style="height: 50px"></div> -->
 
       <!-- NYT graph -->
       <div>
@@ -161,7 +202,15 @@
         </div>
       </div>
 
+      <p>
+        Here, we see that terrorism, cancer, and homicides are the causes of death that are most mentioned in the newspapers. Though the share that cancer occupies seems largely proportional, the share given to both homicides and terrorism appears grossly overrepresented, given their respective share of total deaths.
+      </p>
+
       <div style="height: 50px"></div>
+
+      <p>
+        Finally, here’s all of the above data presented in one graph, so we can see them side-by-side:
+      </p>
 
       <!-- All of the data -->
       <div class="centered container">

@@ -34,3 +34,8 @@ hr {
   font-weight: bold;
   margin-top: -20px;
 }
+
+.author-text {
+  font-size: 0.5em;
+  font-weight: bold;
+}

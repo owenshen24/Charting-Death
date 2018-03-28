@@ -347,5 +347,7 @@ $( document ).ready(function() {
     chart.update();
   }
 
+
+
 // Ending of the document-ready mega-function
 });
