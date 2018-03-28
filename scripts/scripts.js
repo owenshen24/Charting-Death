@@ -239,8 +239,9 @@ $( document ).ready(function() {
   // Graphs the average function
   all_output.innerHTML = parseInt(all_slider.value) + 1998;
   all_slider.oninput = function() {
-    all_output.innerHTML = parseInt(all_slider.value) + 1998;
-    var image_path = "images/graphs/" + parseInt(all_slider.value) + 1998 + "_all.png"
+    var year = parseInt(all_slider.value) + 1998;
+    all_output.innerHTML = year;
+    var image_path = "images/graphs/" + year + "_all.png"
     $("#all-image-graph").attr("src",image_path);
   }
   all_average_button.onclick = function() {
