@@ -33,6 +33,7 @@ var cdc_chart = undefined;
 var google_chart = undefined;
 var nyt_chart = undefined;
 var guardian_chart = undefined;
+var factor_chart = undefined;
 
 // Variables for our graph titles
 var cdc_title = "CDC Relative Mortality Rates : ";
@@ -164,6 +165,7 @@ $( document ).ready(function() {
   	step: undefined,
   	complete: function(results) {
       make_bar_graph(results.data, 1, factor_canvas, factor_title);
+      make_log_scale(factor_chart);
      },
   	error: undefined,
   	download: false,
@@ -354,6 +356,8 @@ $( document ).ready(function() {
       case guardian_canvas:
         guardian_chart = chart;
         break;
+      case factor_canvas:
+        factor_chart = chart;
     }
   }
 
@@ -379,6 +383,12 @@ $( document ).ready(function() {
   }
 
 
+
+  // Changes graph to be log
+  function make_log_scale(chart) {
+    chart.options.scales.yAxes.type = 'logarithmic';
+    chart.update();
+  }
 
 // Ending of the document-ready mega-function
 });

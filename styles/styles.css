@@ -44,3 +44,7 @@ hr {
 h2 {
   font-weight: 500;
 }
+
+br {
+  line-height: 0px;
+}
