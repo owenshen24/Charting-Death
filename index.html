@@ -320,7 +320,7 @@
         </p>
 
         <p>
-          During our preliminary graphing of the data, we noted that terrorism and homicides appeared overrepresented in the news data, and that heart disease appeared underrepresented. Below, we’ve listed the difference of factors in representation across the different sources for the 13 causes of deaths. (For the Factor of Difference column, we took the larger value of  (<sup>Avg Deaths Proportion</sup>/<sub>Avg Newspaper Proportion</sub>)  and  (<sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub>)  and added "Over" or "Under" to denote whether this value was over or underrepresented relative to the Avg Deaths Proportion value.)
+          During our preliminary graphing of the data, we noted that terrorism and homicides appeared overrepresented in the news data, and that heart disease appeared underrepresented. Below, we’ve listed the difference of factors in representation across the different sources for the 13 causes of deaths. For the Factor of Difference column, we took the larger value of <span style="width: 10px"><sup>Avg Deaths Proportion</sup>/<sub>Avg Newspaper Proportion</sub><span style="width: 10px"> and <span style="width: 10px"><sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub><span style="width: 10px"> and added "Over" or "Under" to denote whether this value was over or underrepresented relative to the Avg Deaths Proportion value.)
         </p>
 
         <!-- Comparison table goes here -->
@@ -432,7 +432,7 @@
         <div style="height: 25px"></div>
 
         <p>
-          Here's a graphical representation of the  [<sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub>]  factors. (Note that the y-axis is log-scaled.)
+          Here's a graphical representation of the  <span style="width: 10px"></span><sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub><span style="width: 10px">  factors. (Note that the y-axis is log-scaled)
         </p>
 
 
@@ -495,6 +495,24 @@
           <li>Also, for the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic,if the underlying distribution differs from year to year, meaning that our comparisons using just the average might not have been totally valid.</li>
         </ol>
 
+      </div>
+
+      <!-- Disqus -->
+      <div class="container">
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = 'https://owenshen24.github.io/charting-death'
+        this.page.identifier = 'charting-death';
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://EXAMPLE.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       </div>
 
     <!-- End of the container -->
