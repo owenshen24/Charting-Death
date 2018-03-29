@@ -199,7 +199,7 @@ input[type='radio'] {
 /* I modified this from 113 to 80 */
 .container {
   margin: 0 auto;
-  max-width: 80.0rem;
+  max-width: 75.0rem;
   padding: 0 2.0rem;
   position: relative;
   width: 100%;
@@ -370,7 +370,7 @@ input[type='radio'] {
 
 a {
   color: #1EAEDB; }
-  
+
 a:hover {
   color: #0FA0CE; }
 

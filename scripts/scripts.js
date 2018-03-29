@@ -20,7 +20,7 @@ var cdc_path = 'data/tp_cdc_n.csv';
 var google_path = 'data/tp_google_trends_n.csv';
 var guardian_path = 'data/tp_guardian_n.csv';
 var nyt_path = 'data/tp_nyt_n.csv';
-var facor_path = 'data/tp_factors.csv'
+var factor_path = 'data/tp_factors.csv'
 
 // Variables to store our csv data as a JS Object for easy reference later
 var cdc_data = undefined;
