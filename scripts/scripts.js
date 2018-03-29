@@ -164,7 +164,6 @@ $( document ).ready(function() {
   	step: undefined,
   	complete: function(results) {
       make_bar_graph(results.data, 1, factor_canvas, factor_title);
-
      },
   	error: undefined,
   	download: false,
