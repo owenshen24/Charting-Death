@@ -41,9 +41,8 @@
       <hr />
 
       <div class="author-text">
-        <p>Data collection and analysis done by <a href="https://github.com/haljamaly">Hasan Al-Jamaly</a>, <a href="https://github.com/phi1eas">Maximillian Siemers</a>, <a href="https://github.com/owenshen24">Owen Shen</a>, and <a href="https://github.com/stonecoldnicole">Nicole Stone</a>.</p>
-        <br />
-        <p>Site and writeup done by Owen Shen.
+        <p>Site and writeup by Owen Shen.</p>
+        <p>Data collection and analysis by <a href="https://github.com/haljamaly">Hasan Al-Jamaly</a>, <a href="https://github.com/phi1eas">Maximillian Siemers</a>, <a href="https://github.com/owenshen24">Owen Shen</a>, and <a href="https://github.com/stonecoldnicole">Nicole Stone</a>.</p>
       </div>
 
       <!-- BACKGROUND -->
@@ -256,7 +255,7 @@
         </p>
 
         <p>
-          To examine whether or not these distributions are the same, we’ll use a 𝛘<sup>2</sup> test for homogeneity, which can tell us if the way that different categorical variables are distributed in two groups are the same.
+          To examine whether or not these distributions are the same, we’ll use a 𝛘<sup>2</sup> (chi-squared) test for homogeneity, which can tell us if the way that different categorical variables are distributed in two groups are the same.
         </p>
 
         <div>
@@ -269,6 +268,64 @@
           </ol>
         </div>
 
+        <!-- p-value table -->
+        <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Data Compared</th>
+                <th>𝛘<sup>2</sup> Test Statistic</th>
+                <th>p-value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CDC and Google Trends</td>
+                <td>49.242</td>
+                <td>1.897*10<sup>-6</sup></td>
+              </tr>
+
+              <tr>
+                <td>CDC and The Guardian</td>
+                <td>1198.758</td>
+                <td>3.205*10<sup>-249</sup></td>
+              </tr>
+
+              <tr>
+                <td>CDC and The NYT</td>
+                <td>1204.499</td>
+                <td>1.860*10<sup>-250</sup></td>
+              </tr>
+
+              <tr>
+                <td>The Guardian and The NYT</td>
+                <td>0.056</td>
+                <td>0.999</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          As we guessed, the 𝛘<sup>2</sup> value for tests 1-3 are indeed quite high. Especially for tests 2 and 3, the p-value is incredibly low, meaning that we would basically never expect to see results of this kind, if it were the case that our null hypothesis that the newspaper’s categorical distribution matches that of the CDC’s distribution.
+        </p>
+
+        <p>
+          We can also see that the NYT and the Guardian’s have a very low 𝛘<sup>2</sup> value, indicating that it is quite likely they came from the same distribution. So now we have evidence that our two media sources are roughly similar, and this distribution is different from that of how causes of death actually affect the population.
+        </p>
+
+        <p>
+          During our preliminary graphing of the data, we noted that terrorism and homicides appeared overrepresented in the news data, and that heart disease appeared underrepresented. Below, we’ve listed the difference of factors in representation across the different sources:
+        </p>
+
+        <!-- Comparison table goes here -->
+        <div>
+        </div>
+
+        <!-- Analysis goes here -->
+
+        <hr />
+        <div style="height: 50px"></div>
       </div>
 
     <!-- End of the container -->
