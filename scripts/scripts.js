@@ -20,6 +20,7 @@ var cdc_path = 'data/tp_cdc_n.csv';
 var google_path = 'data/tp_google_trends_n.csv';
 var guardian_path = 'data/tp_guardian_n.csv';
 var nyt_path = 'data/tp_nyt_n.csv';
+var facor_path = 'data/tp_factors.csv'
 
 // Variables to store our csv data as a JS Object for easy reference later
 var cdc_data = undefined;
@@ -38,7 +39,7 @@ var cdc_title = "CDC Relative Mortality Rates : ";
 var google_title = "Google Trends Relative Search Volume: ";
 var guardian_title = "The Guardian's Relative Usage: ";
 var nyt_title = "The NYT's Relative Usage: ";
-var factor_title = ""
+var factor_title = "Ratio of Actual Deaths to Newspaper Coverage: "
 
 // Variables to refer to our chart selectors
 var cdc_canvas = "#cdc_chart";
@@ -46,6 +47,7 @@ var google_canvas = "#google_chart";
 var guardian_canvas = "#guardian_chart";
 var nyt_canvas = "#nyt_chart";
 var factor_canvas = "#factor_chart";
+
 
 
 // Load once the page is ready
