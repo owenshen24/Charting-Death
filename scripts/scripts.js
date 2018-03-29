@@ -68,7 +68,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      make_bar_graph(results.data, 1, cdc_canvas, cdc_title);
+      make_bar_graph(results.data, 1, cdc_canvas, cdc_title, 'linear');
      },
   	error: undefined,
   	download: false,
@@ -92,7 +92,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      make_bar_graph(results.data, 1, google_canvas, google_title);
+      make_bar_graph(results.data, 1, google_canvas, google_title, 'linear');
      },
   	error: undefined,
   	download: false,
@@ -116,7 +116,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      make_bar_graph(results.data, 1, guardian_canvas, guardian_title);
+      make_bar_graph(results.data, 1, guardian_canvas, guardian_title, 'linear');
      },
   	error: undefined,
   	download: false,
@@ -140,7 +140,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      make_bar_graph(results.data, 1, nyt_canvas, nyt_title);
+      make_bar_graph(results.data, 1, nyt_canvas, nyt_title, 'linear');
      },
   	error: undefined,
   	download: false,
@@ -164,7 +164,7 @@ $( document ).ready(function() {
   	comments: false,
   	step: undefined,
   	complete: function(results) {
-      make_bar_graph(results.data, 1, factor_canvas, factor_title);
+      make_bar_graph(results.data, 1, factor_canvas, factor_title, 'logarithmic');
      },
   	error: undefined,
   	download: false,
@@ -285,7 +285,7 @@ $( document ).ready(function() {
 
 
   // Abstracted charting function
-  function make_bar_graph(data, year, canvas_id, title) {
+  function make_bar_graph(data, year, canvas_id, title, chart_type) {
     label_list = [];
     data_list = [];
 
@@ -320,7 +320,7 @@ $( document ).ready(function() {
         },
         scales: {
           yAxes: [{
-            type: 'logarithmic',
+            type: chart_type,
             beginAtZero:true,
             ticks: {
               min: 0,
@@ -383,12 +383,6 @@ $( document ).ready(function() {
   }
 
 
-
-  // Changes graph to be log
-  function make_log_scale(chart) {
-    chart.options.scales.yAxes.type = 'logarithmic';
-    chart.update();
-  }
 
 // Ending of the document-ready mega-function
 });
