@@ -268,6 +268,12 @@
           </ol>
         </div>
 
+        <p>
+          Here are the results:
+        </p>
+
+        <div style="height: 25px"></div>
+
         <!-- p-value table -->
         <div>
           <table>
@@ -282,19 +288,19 @@
               <tr>
                 <td>CDC and Google Trends</td>
                 <td>49.242</td>
-                <td>1.897*10<sup>-6</sup></td>
+                <td>1.897×10<sup>-6</sup></td>
               </tr>
 
               <tr>
                 <td>CDC and The Guardian</td>
                 <td>1198.758</td>
-                <td>3.205*10<sup>-249</sup></td>
+                <td>3.205×10<sup>-249</sup></td>
               </tr>
 
               <tr>
                 <td>CDC and The NYT</td>
                 <td>1204.499</td>
-                <td>1.860*10<sup>-250</sup></td>
+                <td>1.860×10<sup>-250</sup></td>
               </tr>
 
               <tr>
@@ -315,17 +321,181 @@
         </p>
 
         <p>
-          During our preliminary graphing of the data, we noted that terrorism and homicides appeared overrepresented in the news data, and that heart disease appeared underrepresented. Below, we’ve listed the difference of factors in representation across the different sources:
+          During our preliminary graphing of the data, we noted that terrorism and homicides appeared overrepresented in the news data, and that heart disease appeared underrepresented. Below, we’ve listed the difference of factors in representation across the different sources for the 13 causes of deaths. (For the Factor of Difference column, we took the larger value of <sup>Avg Deaths Proportion</sup>/<sub>Avg Newspaper Proportion</sub> and <sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub> and added "Over" or "Under" to denote whether this value was over or underrepresented relative to the Avg Deaths Proportion value.)
         </p>
 
         <!-- Comparison table goes here -->
         <div>
+          <table>
+            <thead>
+              <tr>
+                <th>Cause of Death</th>
+                <th>Avg Deaths Proportion</th>
+                <th>Avg Newspaper Proportion</th>
+                <th>Factor of Difference</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Alzheimer's Disease</td>
+              <td>0.036</td>
+              <td>0.009</td>
+              <td>4.172 Under</td>
+            </tr>
+
+            <tr>
+              <td>Cancer</td>
+              <td>0.279</td>
+              <td>0.171</td>
+              <td>1.631 Under</td>
+            </tr>
+
+            <tr>
+              <td>Car Accidents</td>
+              <td>0.057</td>
+              <td>0.025</td>
+              <td>2.285 Under</td>
+            </tr>
+
+            <tr>
+              <td>Diabetes</td>
+              <td>0.035</td>
+              <td>0.028</td>
+              <td>1.260 Under</td>
+            </tr>
+
+            <tr>
+              <td>Heart Disease</td>
+              <td>0.305</td>
+              <td>0.029</td>
+              <td>10.388 Under</td>
+            </tr>
+
+            <tr>
+              <td>Homicide</td>
+              <td>0.008</td>
+              <td>0.251</td>
+              <td>30.796 Over</td>
+            </tr>
+
+            <tr>
+              <td>Kidney Disease</td>
+              <td>0.023</td>
+              <td>0.002</td>
+              <td>10.793 Under</td>
+            </tr>
+
+            <tr>
+              <td>Lower Respiratory Disease</td>
+              <td>0.064</td>
+              <td>0.018</td>
+              <td>3.520 Under</td>
+            </tr>
+
+            <tr>
+              <td>Overdose</td>
+              <td>0.014</td>
+              <td>0.002</td>
+              <td>7.143 Under</td>
+            </tr>
+
+            <tr>
+              <td>Pneumonia & Influenza</td>
+              <td>0.028</td>
+              <td>0.041</td>
+              <td>1.486 Over</td>
+            </tr>
+
+            <tr>
+              <td>Stroke</td>
+              <td>0.053</td>
+              <td>0.059</td>
+              <td>1.119 Over</td>
+            </tr>
+
+            <tr>
+              <td>Suicide</td>
+              <td>0.017</td>
+              <td>0.118</td>
+              <td>6.878</td>
+            </tr>
+
+            <tr>
+              <td>Terrorism</td>
+              <td>0.000</td>
+              <td>0.306</td>
+              <td>3906.304 Over</td>
+            </tr>
+            </tbody>
+          </table>
         </div>
+
+        <div style="height: 25px"></div>
+
+        <p>
+          Here's a graphical representation of the <sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub> factors:
+        </p>
+
+
+        <!-- Factors graph -->
+        <div>
+          <div class="container graph">
+            <canvas id="factor_chart"></canvas>
+          </div>
+        </div>
+
+        <div style="height: 25px"></div>
 
         <!-- Analysis goes here -->
 
         <hr />
         <div style="height: 50px"></div>
+      </div>
+
+      <!-- Conclusion -->
+      <div>
+        <h2>Conclusion</h2>
+
+        <p>
+          We set out to see if the public attention given to causes of death was similar to the actual distribution of deaths. After looking at our data, we found that, like results before us, the attention given by news outlets and Google searches does not match the actual distribution of deaths.
+        </p>
+
+        <p>
+          This suggests that general public sentiment is not well-calibrated with the ways that people actually die. Heart disease appears largely underrepresented in the sphere of public attention, while terrorism and homicides capture a far larger share, relative to their share of deaths caused.
+        </p>
+
+        <p>
+          Though we have shown a disparity between attention and reality, we caution from drawing immediate conclusions for policy. One major issue we have failed to address here is that of tractability; just because a cause of death claims more lives does not mean that it is easily addressable.
+        </p>
+
+        <p>
+          A more nuanced look at which causes of mortality to prioritize would likely be with a model like an <a href="https://mdickens.me/2016/06/10/evaluation_frameworks_(or-_when_scale-neglectedness-tractability_doesn't_apply)/">evaluation framework</a>.
+        </p>
+
+        <hr />
+        <div style="height: 50px"></div>
+      </div>
+
+      <!-- Full Disclosure -->
+      <div>
+        <h2>Full Disclosure</h2>
+
+        <p>
+          Throughout the course of this project, we engaged in several, shall we say, <em>questionable</em>, methodological conveniences to make the analysis easier on us. These transgressions would likely doom us to the third circle of Statistics Hell—not as bad as p-hacking, but definitely worse than failing to preregister. Thus, to keep our consciences clean, we present to you:
+        </p>
+
+        <h4>Statistical Sins We Committed:</h4>
+
+        <ol>
+          <li>The article search APIs returned a list of all articles which contained the word <em>anywhere</em> (headline or body). Though we originally wanted to look just at headlines, filtering for titles ended up proving unwieldy, so we ended up just grabbing the direct number of hits anywhere. This is a potential confounder in our analysis, especially as some words like “stroke” have multiple usages; it also means that our news data isn't exactly representative of media hype.</li>
+
+          <li>Also, for the article search, we searched for different synonyms and added them up for our categories, as certain words, e.g. “murder”, have roughly the same meaning as our initial search terms, e.g. “homicide”, and we wanted to take this into account. However, this might have led to unequal coverage of different topics, as certain words had more synonyms than others. For example, we used hits from “heart disease”, “heart failure”, and “cardiovascular disease” to account for the heart disease category, but only “Alzheimer’s” for the “Alzheimer’s Disease” category.</li>
+
+          <li>My understanding is that a 𝛘<sup>2</sup> test is typically used to measure counts for categorical data where the categories are mutually independent; that’s a dubious assumption here, as several keywords, e.g. “homicide” and “terrorism”, might be mentioned in the same article. So there’s definitely some double-counting going on here, which muddies our analysis.</li>
+
+          <li>Also, for the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic,if the underlying distribution differs from year to year, meaning that our comparisons using just the average might not have been totally valid.</li>
+        </ol>
+
       </div>
 
     <!-- End of the container -->

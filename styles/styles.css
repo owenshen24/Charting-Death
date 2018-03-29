@@ -39,3 +39,8 @@ hr {
   font-size: 0.75em;
   font-weight: bold;
 }
+
+/* Bolding the headings */
+h2 {
+  font-weight: bold;
+}

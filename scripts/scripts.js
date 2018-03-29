@@ -38,13 +38,14 @@ var cdc_title = "CDC Relative Mortality Rates : ";
 var google_title = "Google Trends Relative Search Volume: ";
 var guardian_title = "The Guardian's Relative Usage: ";
 var nyt_title = "The NYT's Relative Usage: ";
+var factor_title = ""
 
 // Variables to refer to our chart selectors
 var cdc_canvas = "#cdc_chart";
 var google_canvas = "#google_chart";
 var guardian_canvas = "#guardian_chart";
 var nyt_canvas = "#nyt_chart";
-
+var factor_canvas = "#factor_chart";
 
 
 // Load once the page is ready
@@ -147,27 +148,56 @@ $( document ).ready(function() {
   	withCredentials: undefined
   }
 
+  var factor_config = {
+  	delimiter: "",	// auto-detect
+  	newline: "",	// auto-detect
+  	quoteChar: '"',
+  	escapeChar: '"',
+  	header: true,
+  	dynamicTyping: false,
+  	preview: 0,
+  	encoding: "",
+  	worker: false,
+  	comments: false,
+  	step: undefined,
+  	complete: function(results) {
+      make_bar_graph(results.data, 1, factor_canvas, factor_title);
+
+     },
+  	error: undefined,
+  	download: false,
+  	skipEmptyLines: false,
+  	chunk: undefined,
+  	fastMode: undefined,
+  	beforeFirstChunk: undefined,
+  	withCredentials: undefined
+  }
+
 
 
   // AJAX request to grab the data CSVs
   $.get(cdc_path, function (data) {
-      var csvdata = Papa.parse(data, cdc_config);
+      let csvdata = Papa.parse(data, cdc_config);
       cdc_data = csvdata.data;
   });
 
   $.get(google_path, function (data) {
-      var csvdata = Papa.parse(data, google_config);
+      let csvdata = Papa.parse(data, google_config);
       google_data = csvdata.data;
   });
 
   $.get(guardian_path, function (data) {
-        var csvdata = Papa.parse(data, guardian_config);
-        guardian_data = csvdata.data;
+      let csvdata = Papa.parse(data, guardian_config);
+      guardian_data = csvdata.data;
   });
 
   $.get(nyt_path, function (data) {
-      var csvdata = Papa.parse(data, nyt_config);
+      let csvdata = Papa.parse(data, nyt_config);
       nyt_data = csvdata.data;
+  });
+
+  $.get(factor_path, function (data) {
+      let csvdata = Papa.parse(data, factor_config);
   });
 
 
