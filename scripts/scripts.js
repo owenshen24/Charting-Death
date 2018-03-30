@@ -40,7 +40,7 @@ var cdc_title = "CDC Relative Mortality Rates : ";
 var google_title = "Google Trends Relative Search Volume: ";
 var guardian_title = "The Guardian's Relative Usage: ";
 var nyt_title = "The NYT's Relative Usage: ";
-var factor_title = "Ratio of Actual Deaths to Newspaper Coverage: "
+var factor_title = "Ratio of Newspaper Coverage to Actual Deaths: "
 
 // Variables to refer to our chart selectors
 var cdc_canvas = "#cdc_chart";
