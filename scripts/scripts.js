@@ -291,14 +291,17 @@ $( document ).ready(function() {
 
     // Hard-coded limit of 13 to solve problems w/ undefined
     for (var i = 0; i < 13; i++) {
-      label_list.push(data[0][i]);
-      var temp_data = {
-        label: data[0][i],
-        data: [data[year][i]],
-        borderWidth: 1,
-        backgroundColor: [colors[i]]
-      };
-      data_list.push(temp_data);
+      // Push data for all years to find the overall maximum vertical scale for the chart
+      for (var j = year; typeof data[j] === 'object'; j++) {
+        label_list.push(data[0][i]);
+        var temp_data = {
+          label: data[0][i],
+          data: [data[j][i]],
+          borderWidth: 1,
+          backgroundColor: [colors[i]]
+        };
+        data_list.push(temp_data);
+      }
     }
 
     var canvas = $(canvas_id);
@@ -342,7 +345,8 @@ $( document ).ready(function() {
             }
           }
       }});
-
+    // Lock in the overall max so it doesn't change when we switch years
+    chart.options.scales.yAxes[0].ticks.max = chart.scales["y-axis-0"].max;
     switch(canvas_id) {
       case google_canvas:
         google_chart = chart;
@@ -359,6 +363,8 @@ $( document ).ready(function() {
       case factor_canvas:
         factor_chart = chart;
     }
+    // Finally, update the chart with the correct data for the starting year
+    updateData(chart, data, year, title);
   }
 
 
