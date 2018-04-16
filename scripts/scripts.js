@@ -1,6 +1,6 @@
 // Edit these colors later
 var colors = [
-  'rgba(77, 157, 224, 1)',
+  'rgba(0, 51, 0 1)',
   'rgba(225, 188, 41, 1)',
   'rgba(255, 133, 82, 1)',
   'rgba(59, 178, 115, 1)',
