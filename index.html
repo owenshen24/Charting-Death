@@ -497,16 +497,16 @@
           Throughout the course of this project, we engaged in several, shall we say, <em>questionable</em>, methodological conveniences to make the analysis easier on us. These transgressions would likely doom us to the third circle of Statistics Hell—not as bad as p-hacking, but definitely worse than failing to preregister. Thus, to keep our consciences clean, we present to you:
         </p>
 
-        <h4>Statistical Sins We Committed:</h4>
+        <h4>Our Statistical Sins:</h4>
 
         <ol>
           <li>The article search APIs returned a list of all articles which contained the word <em>anywhere</em> (headline or body). Though we originally wanted to look just at headlines, filtering for titles ended up proving unwieldy, so we ended up just grabbing the direct number of hits anywhere. This is a potential confounder in our analysis, especially as some words like “stroke” have multiple usages; it also means that our news data isn't exactly representative of media hype.</li>
 
           <li>Also, for the article search, we searched for different synonyms and added them up for our categories, as certain words, e.g. “murder”, have roughly the same meaning as our initial search terms, e.g. “homicide”, and we wanted to take this into account. However, this might have led to unequal coverage of different topics, as certain words had more synonyms than others. For example, we used hits from “heart disease”, “heart failure”, and “cardiovascular disease” to account for the heart disease category, but only “Alzheimer’s” for the “Alzheimer’s Disease” category.</li>
 
-          <li>My understanding is that a 𝛘<sup>2</sup> test is typically used to measure counts for categorical data where the categories are mutually independent; that’s a dubious assumption here, as several keywords, e.g. “homicide” and “terrorism”, might be mentioned in the same article. So there’s definitely some double-counting going on here, which muddies our analysis.</li>
+          <li>A 𝛘<sup>2</sup> test is typically used to measure counts for categorical data where the categories are mutually independent; that’s a dubious assumption here, as several keywords, e.g. “homicide” and “terrorism”, might be mentioned in the same article. So there’s definitely some double-counting going on here, which muddies our analysis.</li>
 
-          <li>Also, for the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic because, if the underlying distribution differs from year to year, our comparisons using just the average might not be totally valid.</li>
+          <li>Also, for the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic because, if the underlying distribution differs from year to year, our comparisons using just the average would not be valid.</li>
         </ol>
 
         <hr />
