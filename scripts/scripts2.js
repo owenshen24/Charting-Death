@@ -88,7 +88,7 @@ let config = {
   "stack": {
     "path" : 'data/stack.csv',
     "id" : "#stack_chart",
-    "title" : "Deaths Distribution for All Sources",
+    "title" : "Average Deaths Distribution for All Sources",
     "colors" : colors,
     "parse_callback" : {
       "complete" : function(r) {
@@ -96,6 +96,7 @@ let config = {
         make_stack_bar_graph("stack");
       }
     },
+    "chart" : undefined,
     "sources" : ['CDC', 'NYT', 'Guardian', 'Google Trends']
   }
 };
@@ -127,6 +128,9 @@ function format_data(key, year) {
       borderWidth: 1,
       backgroundColor: [config[key]['colors'][i]]
     });
+    if (i === num_causes-1) {
+      console.log(data[year+offset][i+1]);
+    }
   }
   return(format);
 }
@@ -150,6 +154,13 @@ function make_bar_graph(key, year) {
       datasets: dataset
     },
     options: {
+      maintainAspectRatio: false,
+      legend: {
+        position: 'left',
+        labels: {
+          fontSize: 16
+        }
+      },
       title: {
         display: true,
         text: config[key]['title'],
@@ -164,7 +175,8 @@ function make_bar_graph(key, year) {
         yAxes: [{
           type: scale,
           ticks: {
-            fontSize: 14
+            fontSize: 14,
+            beginAtZero: true
           }
         }]
       },
@@ -200,6 +212,13 @@ function make_stack_bar_graph(key) {
       datasets: dataset
     },
     options: {
+      maintainAspectRatio: false,
+      legend: {
+        position: 'left',
+        labels: {
+          fontSize: 16
+        }
+      },
       title: {
         display: true,
         text: config[key]['title'],
@@ -228,6 +247,7 @@ function make_stack_bar_graph(key) {
       }
     }
   });
+  config[key]["chart"] = chart;
   chart.update();
 }
 

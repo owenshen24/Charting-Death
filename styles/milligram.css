@@ -195,7 +195,6 @@ input[type='radio'] {
   margin-left: .5rem;
 }
 
-/* I modified this from 113 to 80 */
 .container {
   margin: 0 auto;
   max-width: 80.0rem;

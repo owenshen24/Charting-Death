@@ -53,6 +53,6 @@ hr {
 }
 
 /* Graph stylings */
-.graph-holder {
-  overflow: auto;
+.graph {
+  height: 38rem;
 }

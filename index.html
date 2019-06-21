@@ -111,20 +111,18 @@
           </p>
 
         <!-- CDC graph -->
-        <div class="graph-holder">
-          <div class="container graph">
-            <canvas id="cdc_chart"></canvas>
-          </div>
-          <div class="container">
-            <div class="centered"
-                data-key="cdc"
-                data-start="1999">
-              <button class="prev-year">⬅</button>
-              <input type="range" min="0" max="17" value="0" class="slider">
-              <button class="next-year">➡</button>
-              <div class="slider-value">Year: 1999</div>
-              <button class="average-button">Average All Years</button>
-            </div>
+        <div class="container graph">
+          <canvas id="cdc_chart"></canvas>
+        </div>
+        <div class="container">
+          <div class="centered"
+              data-key="cdc"
+              data-start="1999">
+            <button class="prev-year">⬅</button>
+            <input type="range" min="0" max="17" value="0" class="slider">
+            <button class="next-year">➡</button>
+            <div class="slider-value">Year: 1999</div>
+            <button class="average-button">Average All Years</button>
           </div>
         </div>
 
@@ -479,11 +477,11 @@
         <ol>
           <li>The article search APIs returned a list of all articles which contained the word <em>anywhere</em> (headline or body). Though we originally wanted to look just at headlines, filtering for titles ended up proving unwieldy, so we ended up just grabbing the direct number of hits anywhere. This is a potential confounder in our analysis, especially as some words like “stroke” have multiple usages; it also means that our news data isn't exactly representative of media hype.</li>
 
-          <li>Also, for the article search, we searched for different synonyms and added them up for our categories, as certain words, e.g. “murder”, have roughly the same meaning as our initial search terms, e.g. “homicide”, and we wanted to take this into account. However, this might have led to unequal coverage of different topics, as certain words had more synonyms than others. For example, we used hits from “heart disease”, “heart failure”, and “cardiovascular disease” to account for the heart disease category, but only “Alzheimer’s” for the “Alzheimer’s Disease” category.</li>
+          <li>To count up each cause of death, we searched for different synonyms and added them up for our categories, we wanted to take into account words which might mean the same thing, like "murder" and "homicide". However, this likely led to unequal coverage of different topics, as certain words had more synonyms than others. For example, we used hits from “heart disease”, “heart failure”, and “cardiovascular disease” to account for the heart disease category, but only “Alzheimer’s” for the “Alzheimer’s Disease” category.</li>
 
           <li>A 𝛘<sup>2</sup> test is typically used to measure counts for categorical data where the categories are mutually independent; that’s a dubious assumption here, as several keywords, e.g. “homicide” and “terrorism”, might be mentioned in the same article. So there’s definitely some double-counting going on here, which muddies our analysis.</li>
 
-          <li>Also, for the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic because, if the underlying distribution differs from year to year, our comparisons using just the average would not be valid.</li>
+          <li>For the 𝛘<sup>2</sup> test, we used the average counts across all years, rather than running pairwise tests year-by-year. This could prove problematic because, if the underlying distribution differs from year to year, our comparisons using just the average would not be valid.</li>
         </ol>
 
         <hr />
