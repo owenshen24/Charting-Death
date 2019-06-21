@@ -18,21 +18,23 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
     <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
 
     <!-- Milligram CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" type="text/css" href="styles/milligram.css">
 
-    <!-- My own stylings and scripts -->
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
-    <script type="text/javascript" src="scripts/scripts.js"></script>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500">
 
     <!-- Charts.js -->
-    <script rel="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script rel="text/javascript" src="scripts/Chart.bundle.min.js"></script>
 
     <!-- Papa Parser for CSV -->
     <script rel="text/javascript" src="scripts/papaparse.min.js"></script>
+
+    <!-- My own stylings and scripts -->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <script type="text/javascript" src="scripts/scripts2.js"></script>
 
   </head>
 
@@ -41,21 +43,21 @@
     <div class="container">
 
       <div class="death-logo">
-        <img src="images/skull3.png" />
+        <img src="images/skull.png" />
       </div>
 
       <!-- HEADING -->
-      <h1 class="centered">Death: Reality vs Reported</h1>
+      <h1 class="centered title">Death: Reality vs Reported</h1>
 
       <hr />
 
       <div class="author-text">
-        <p>Site and writeup by Owen Shen. <br/>Data collection and analysis by <a href="https://github.com/haljamaly">Hasan Al-Jamaly</a>, <a href="https://github.com/phi1eas">Maximillian Siemers</a>, <a href="https://github.com/owenshen24">Owen Shen</a>, and <a href="https://github.com/stonecoldnicole">Nicole Stone</a>.</p>
+        <p>Site and writeup by Owen Shen. <br/>Data collection and analysis by <a href="https://github.com/owenshen24">Owen Shen</a>, <a href="https://github.com/haljamaly">Hasan Al-Jamaly</a>, <a href="https://github.com/phi1eas">Maximillian Siemers</a>, and <a href="https://github.com/stonecoldnicole">Nicole Stone</a>.</p>
       </div>
 
       <!-- BACKGROUND -->
       <div>
-        <h2 id="background-">Background:</h2>
+        <h2 id="background-">Background</h2>
 
         <p>How do people die?</p>
 
@@ -91,7 +93,7 @@
         <p>For our project, we looked at four sources:</p>
           <ol>
           <li><a href="https://wonder.cdc.gov/">The Center for Disease Control’s WONDER database for public health data</a> (1999-2016).</li>
-          <li><a href="https://github.com/GeneralMills/pytrends">Google Trends search volume</a> (2004-2016). </li>
+          <li><a href="https://trends.google.com/trends/explore?date=all&geo=US&q=cancer,heart%20disease,terrorism,suicide">Google Trends search volume</a> (2004-2016). </li>
           <li><a href="http://open-platform.theguardian.com/">The Guardian’s article database</a>. </li>
           <li><a href="https://developer.nytimes.com/">The New York Times’ article database</a>. </li>
           </ol>
@@ -109,22 +111,17 @@
           </p>
 
         <!-- CDC graph -->
-        <div>
+        <div class="graph-holder">
           <div class="container graph">
             <canvas id="cdc_chart"></canvas>
           </div>
-          <!-- CDC slider -->
           <div class="container">
-            <div class="centered">
-              <input type="range" min="1" max="18" value="1" class="slider" id="cdc-slider">
-              <!-- Vertical spacer -->
-              <div style="height: 10px"></div>
-              <div class="slider-value">
-                <span>Year: <span id="cdc-slider-value"></span></p></span>
-              </div>
-            </div>
-            <div class="centered">
-              <button id="cdc-slider-average-button">Average Across All Years</button>
+            <div class="centered"
+                data-key="cdc"
+                data-start="1999">
+              <input type="range" min="0" max="17" value="0" class="slider">
+              <div class="slider-value">Year: 1999</div>
+              <button class="average-button">Average All Years</button>
             </div>
           </div>
         </div>
@@ -135,7 +132,7 @@
           Immediately, we can see that cancer and heart disease take up a major chunk of all deaths, each responsible for around 30% of the total death count. On the graph, everything is visible except for terrorism, which is so small it doesn’t show up unless we zoom in (You can do this by clicking on different causes in the legend to “strike them out” from the graph).
         </p>
 
-        <div style="height: 50px"></div>
+        <div style="height: 25px"></div>
 
         <p>
           Next, here’s the Google Trends data. (Because Google Trends didn’t start until 2004, we alas aren’t able to explore search data from 1999-2003.)
@@ -146,18 +143,15 @@
           <div class="container graph">
             <canvas id="google_chart"></canvas>
           </div>
-          <!-- Google Trends slider -->
           <div class="container">
-            <div class="centered">
-              <input type="range" min="1" max="13" value="1" class="slider" id="google-slider">
-              <!-- Vertical spacer -->
-              <div style="height: 10px"></div>
-              <div class="slider-value">
-                <span>Year: <span id="google-slider-value"></span></p></span>
-              </div>
-            </div>
-            <div class="centered">
-              <button id="google-slider-average-button">Average Across All Years</button>
+            <div class="centered"
+                data-key="google"
+                data-start="2004">
+              <button class="prev-year">⬅</button>
+              <input type="range" min="0" max="12" value="0" class="slider">
+              <button class="next-year">➡</button>
+              <div class="slider-value">Year: 2004</div>
+              <button class="average-button">Average All Years</button>
             </div>
           </div>
         </div>
@@ -168,56 +162,49 @@
           The two major changes here seem to be that heart disease is underrepresented here, and terrorism is very much overrepresented. Suicide also looks like it has several times more relative share here than compared to the actual death rate. The rest of the causes look like they’re within the right order of magnitude as the CDC data.
         </p>
 
-        <div style="height: 50px"></div>
+        <div style="height: 25px"></div>
 
         <p>
           Now here’s the data for The Guardian and The New York Times. We put them both below as they appear quite similar. (We’ll be able to quantify the degree of similarity in the next section.)
         </p>
 
-        <!-- Guardian graph -->
-        <div>
+       <!-- Guardian graph -->
+       <div>
           <div class="container graph">
             <canvas id="guardian_chart"></canvas>
           </div>
-          <!-- Guardian slider -->
           <div class="container">
-            <div class="centered">
-              <input type="range" min="1" max="18" value="1" class="slider" id="guardian-slider">
-              <!-- Vertical spacer -->
-              <div style="height: 10px"></div>
-              <div class="slider-value">
-                <span>Year: <span id="guardian-slider-value"></span></p></span>
-              </div>
-            </div>
-            <div class="centered">
-              <button id="guardian-slider-average-button">Average Across All Years</button>
+            <div class="centered"
+                data-key="guardian"
+                data-start="1999">
+              <button class="prev-year">⬅</button>
+              <input type="range" min="0" max="17" value="0" class="slider">
+              <button class="next-year">➡</button>
+              <div class="slider-value">Year: 1999</div>
+              <button class="average-button">Average All Years</button>
             </div>
           </div>
         </div>
 
-        <!-- <div style="height: 50px"></div> -->
-        <div style="height: 25px"></div>
+        <div style="height: 37px"></div>
 
         <!-- NYT graph -->
         <div>
-          <div class="container graph">
-            <canvas id="nyt_chart"></canvas>
-          </div>
-          <!-- NYT slider -->
-          <div class="container">
-            <div class="centered">
-              <input type="range" min="1" max="18" value="1" class="slider" id="nyt-slider">
-              <!-- Vertical spacer -->
-              <div style="height: 10px"></div>
-              <div class="slider-value">
-                <span>Year: <span id="nyt-slider-value"></span></p></span>
+            <div class="container graph">
+              <canvas id="nyt_chart"></canvas>
+            </div>
+            <div class="container">
+              <div class="centered"
+                  data-key="nyt"
+                  data-start="1999">
+                <button class="prev-year">⬅</button>
+                <input type="range" min="0" max="17" value="0" class="slider">
+                <button class="next-year">➡</button>
+                <div class="slider-value">Year: 1999</div>
+                <button class="average-button">Average All Years</button>
               </div>
             </div>
-            <div class="centered">
-              <button id="nyt-slider-average-button">Average Across All Years</button>
-            </div>
           </div>
-        </div>
 
         <div style="height: 25px"></div>
 
@@ -225,30 +212,14 @@
           Here, we see that terrorism, cancer, and homicides are the causes of death that are most mentioned in the newspapers. Though the share that cancer occupies seems largely proportional, the share given to both homicides and terrorism appears grossly overrepresented, given their respective share of total deaths.
         </p>
 
-        <div style="height: 50px"></div>
+        <div style="height: 25px"></div>
 
         <p>
           Finally, here’s all of the above data presented in one graph, so we can see them side-by-side:
         </p>
 
         <!-- All of the data -->
-        <div class="centered container">
-          <img id="all-image-graph" src="images/graphs/1999_all.png" />
-          <!-- All slider -->
-          <div class="container">
-            <div class="centered">
-              <input type="range" min="1" max="18" value="1" class="slider" id="all-slider">
-              <!-- Vertical spacer -->
-              <div style="height: 10px"></div>
-              <div class="slider-value">
-                <span>Year: <span id="all-slider-value"></span></p></span>
-              </div>
-            </div>
-            <div class="centered">
-              <button id="all-slider-average-button">Average Across All Years</button>
-            </div>
-          </div>
-        </div>
+        
 
         <hr />
         <div style="height: 50px"></div>
@@ -331,7 +302,7 @@
         </p>
 
           <p>
-            (For the Factor of Difference column, we took the larger value of <span style="width: 10px"><sup>Avg Deaths Proportion</sup>/<sub>Avg Newspaper Proportion</sub><span style="width: 10px"> and <span style="width: 10px"><sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub><span style="width: 10px"> and added "Over" or "Under" to denote whether this value was over or underrepresented relative to the Avg Deaths Proportion value.)
+            (For the Factor of Difference column, we took the larger value of <span style="width: 10px"><sup>Avg Deaths Prop.</sup>/<sub>Avg News Prop.</sub><span style="width: 10px"> and <span style="width: 10px"><sup>Avg News Prop.</sup>/<sub>Avg Deaths Prop.</sub><span style="width: 10px"> and added "Over" or "Under" to denote whether this value was over or underrepresented relative to the Avg Deaths Proportion value.)
           </p>
 
         <!-- Comparison table goes here -->
@@ -443,7 +414,7 @@
         <div style="height: 25px"></div>
 
         <p>
-          Here's a graphical representation of the  <span style="width: 10px"></span><sup>Avg Newspaper Proportion</sup>/<sub>Avg Deaths Proportion</sub><span style="width: 10px">  factors. (Note that the y-axis is log-scaled)
+          Here's a graphical representation of the  <span style="width: 10px"></span><sup>Avg News Prop.</sup>/<sub>Avg Deaths Prop.</sub><span style="width: 10px">  factors. (Note that the y-axis is log-scaled)
         </p>
 
 
@@ -482,7 +453,7 @@
         </p>
 
         <p>
-          A more nuanced look at which causes of mortality to prioritize would likely be with a model like an <a href="https://mdickens.me/2016/06/10/evaluation_frameworks_(or-_when_scale-neglectedness-tractability_doesn't_apply)/">evaluation framework</a>.
+          A more nuanced look at which causes of mortality to prioritize would likely be with an <a href="https://mdickens.me/2016/06/10/evaluation_frameworks_(or-_when_scale-neglectedness-tractability_doesn't_apply)/">evaluation framework</a>.
         </p>
 
         <hr />

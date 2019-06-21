@@ -5,7 +5,7 @@ var colors = [
   'rgba(255, 133, 82, 1)',
   'rgba(59, 178, 115, 1)',
   'rgba(63, 182, 186, 1)',
-    'rgba(255, 84, 81, 1)',
+  'rgba(255, 84, 81, 1)',
   'rgba(120, 220, 106, 1)',
   'rgba(76, 92, 173, 1)',
   'rgba(168, 41, 130, 1)',
@@ -20,7 +20,7 @@ var cdc_path = 'data/tp_cdc_n.csv';
 var google_path = 'data/tp_google_trends_n.csv';
 var guardian_path = 'data/tp_guardian_n.csv';
 var nyt_path = 'data/tp_nyt_n.csv';
-var factor_path = 'data/tp_factors.csv'
+var factor_path = 'data/tp_factors.csv';
 
 // Variables to store our csv data as a JS Object for easy reference later
 var cdc_data = undefined;

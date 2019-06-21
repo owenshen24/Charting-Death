@@ -1,12 +1,4 @@
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em;
-    padding: 0;
-}
-
+/* Header */
 .death-logo {
   display: block;
   margin-left: auto;
@@ -15,36 +7,52 @@ hr {
   padding-bottom: 10px;
   padding-top: 10px;
 }
-
-.centered {
-  text-align: center;
-}
-
-/* .graph {
-  height: 500px;
-  width: 500px;
-} */
-
-.slider {
-  width: 50%;
-}
-
-.slider-value {
-  font-size: 1em;
-  font-weight: bold;
-  margin-top: -20px;
-}
-
 .author-text {
   font-size: 0.75em;
-  font-weight: bold;
-}
-
-/* Bolding the headings */
-h2 {
   font-weight: 500;
 }
 
+/* Utilities */
+.centered {
+  text-align: center;
+}
+button {
+  font-size: 1.3rem;
+}
+
+/* Sliders */
+.average-button {
+  margin-top: 1rem;
+}
+.slider {
+  width: 50%;
+}
+.slider-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+/* Bolding the headings */
+.title {
+  font-weight: 500;
+}
+
+/* Spacers */
 br {
   line-height: 0px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em;
+  padding: 0;
+}
+
+/* Graph stylings */
+.graph-holder {
+  overflow: auto;
 }
