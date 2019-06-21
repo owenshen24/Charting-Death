@@ -84,6 +84,19 @@ let config = {
     },
     "chart" : undefined,
     "scale" : 'logarithmic'
+  },
+  "stack": {
+    "path" : 'data/stack.csv',
+    "id" : "#stack_chart",
+    "title" : "Deaths Distribution for All Sources",
+    "colors" : colors,
+    "parse_callback" : {
+      "complete" : function(r) {
+        data_arr['stack'] = r.data;
+        make_stack_bar_graph("stack");
+      }
+    },
+    "sources" : ['CDC', 'NYT', 'Guardian', 'Google Trends']
   }
 };
 
@@ -95,7 +108,9 @@ function load_data() {
   for (let key in config) {
     let path = config[key]["path"];
     $.get(path, function (data) {
-      data_arr[key] = Papa.parse(data, config[key]['parse_callback'])['data'];
+      let cfg = config[key]['parse_callback'];
+      cfg['skipEmptyLines'] = true;
+      data_arr[key] = Papa.parse(data, cfg)['data'];
     });
   }
 }
@@ -104,7 +119,7 @@ function format_data(key, year) {
   let data = data_arr[key];
   let offset = 2;
   let num_causes = 13;
-  format = []
+  let format = []
   for (let i = 0; i < num_causes; i++) {
     format.push({
       label: label_list[i],
@@ -147,12 +162,72 @@ function make_bar_graph(key, year) {
       },
       scales: {
         yAxes: [{
-          type: scale
+          type: scale,
+          ticks: {
+            fontSize: 14
+          }
         }]
+      },
+      tooltips: {
+        callbacks: {
+          title: function() {}
+        }
       }
     }
   });
   config[key]["chart"] = chart;
+  chart.update();
+}
+
+function make_stack_bar_graph(key) {
+  let offset = 1;
+  let data = data_arr[key];
+  let num_causes = 13;
+  let dataset = [];
+  for (let i = 0; i < num_causes; i++) {
+    dataset.push({
+      label: label_list[i],
+      data: data[i+offset],
+      borderWidth: 1,
+      backgroundColor: colors[i]
+    });
+  }
+  let ctx = $(config[key]['id'])[0].getContext("2d");
+  let chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: config[key]['sources'],
+      datasets: dataset
+    },
+    options: {
+      title: {
+        display: true,
+        text: config[key]['title'],
+        fontSize: 22,
+        padding: 30,
+        fontColor: '#2b2b2b'
+      },
+      animation: {
+        duration: 0
+      },
+      scales: {
+        xAxes: [{
+          stacked: true,
+          ticks: {
+            fontSize: 18
+          }
+        }],
+        yAxes: [{
+          stacked: true,
+          ticks: {
+            max: 1,
+            min: 0,
+            fontSize: 14
+          }
+        }]
+      }
+    }
+  });
   chart.update();
 }
 
@@ -167,7 +242,6 @@ $(document).ready(function() {
     let display_year = parseInt($(this).parent().data("start"))+year;
     $(this).siblings(".slider-value").text('Year: ' + display_year);
     update_data(key, year);
-    console.log("ping!");
   });
 
   // Update chart with buttons

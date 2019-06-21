@@ -94,8 +94,8 @@
           <ol>
           <li><a href="https://wonder.cdc.gov/">The Center for Disease Control’s WONDER database for public health data</a> (1999-2016).</li>
           <li><a href="https://trends.google.com/trends/explore?date=all&geo=US&q=cancer,heart%20disease,terrorism,suicide">Google Trends search volume</a> (2004-2016). </li>
-          <li><a href="http://open-platform.theguardian.com/">The Guardian’s article database</a>. </li>
-          <li><a href="https://developer.nytimes.com/">The New York Times’ article database</a>. </li>
+          <li><a href="http://open-platform.theguardian.com/">The Guardian’s article database</a> (1999-2016).</li>
+          <li><a href="https://developer.nytimes.com/">The New York Times’ article database</a> (1999-2016).</li>
           </ol>
 
           <p>
@@ -119,7 +119,9 @@
             <div class="centered"
                 data-key="cdc"
                 data-start="1999">
+              <button class="prev-year">⬅</button>
               <input type="range" min="0" max="17" value="0" class="slider">
+              <button class="next-year">➡</button>
               <div class="slider-value">Year: 1999</div>
               <button class="average-button">Average All Years</button>
             </div>
@@ -219,8 +221,12 @@
         </p>
 
         <!-- All of the data -->
+        <div>
+          <div class="container graph">
+            <canvas id="stack_chart"></canvas>
+          </div>
+        </div>
         
-
         <hr />
         <div style="height: 50px"></div>
       </div>
@@ -468,7 +474,7 @@
           Throughout the course of this project, we engaged in several, shall we say, <em>questionable</em>, methodological conveniences to make the analysis easier on us. These transgressions would likely doom us to the third circle of Statistics Hell—not as bad as p-hacking, but definitely worse than failing to preregister. Thus, to keep our consciences clean, we present to you:
         </p>
 
-        <h4>Our Statistical Sins:</h4>
+        <h4>Our Statistical Sins</h4>
 
         <ol>
           <li>The article search APIs returned a list of all articles which contained the word <em>anywhere</em> (headline or body). Though we originally wanted to look just at headlines, filtering for titles ended up proving unwieldy, so we ended up just grabbing the direct number of hits anywhere. This is a potential confounder in our analysis, especially as some words like “stroke” have multiple usages; it also means that our news data isn't exactly representative of media hype.</li>
@@ -481,26 +487,8 @@
         </ol>
 
         <hr />
-        <div style="height: 50px"></div>
+        <div style="height: 25px"></div>
       </div>
-
-<!--       <!-- Disqus
-      <div class="container">
-        <div id="disqus_thread"></div>
-        <script>
-        var disqus_config = function () {
-        this.page.url = 'https://owenshen24.github.io/charting-death/'
-        this.page.identifier = 'charting-death';
-        };
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://owenshen24.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      </div> -->
 
     <!-- End of the container -->
     </div>
