@@ -128,9 +128,6 @@ function format_data(key, year) {
       borderWidth: 1,
       backgroundColor: [config[key]['colors'][i]]
     });
-    if (i === num_causes-1) {
-      console.log(data[year+offset][i+1]);
-    }
   }
   return(format);
 }
