@@ -28,6 +28,7 @@ body {
 
 blockquote {
   border-left: 0.3rem solid #d1d1d1;
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   margin-left: 0;
   margin-right: 0;
   padding: 1rem 1.5rem;

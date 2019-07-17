@@ -14,6 +14,22 @@ let colors = [
 'rgb(252, 173, 255)'
 ]
 
+let label_list = [
+  "Alzheimer's Disease", 
+  "Cancer", 
+  "Car Accidents", 
+  "Diabetes", 
+  "Heart Disease", 
+  "Homicide", 
+  "Kidney Disease", 
+  "Lower Respiratory Disease", 
+  "Overdose", 
+  "Pneumonia & Influenza", 
+  "Stroke", 
+  "Suicide", 
+  "Terrorism"
+];
+
 let config = {
   "cdc": {
     "path" : 'data/cdc.csv',
@@ -23,10 +39,6 @@ let config = {
     "parse_callback" : {
       "complete" : function(r) {
         data_arr['cdc'] = r.data;
-        // Set up label list, only for first dataset
-        if (label_list.length === 0) {
-          label_list = data_arr['cdc'][1].slice(1);
-        }
         make_bar_graph("cdc", 0);
       }
     },
@@ -102,7 +114,6 @@ let config = {
 };
 
 let data_arr = {};
-let label_list = [];
 
 // Load data into data_arr
 function load_data() {
@@ -287,7 +298,6 @@ $(document).ready(function() {
   $(".next-year").on('click', function() {
     $(this).updateSlider(true);
   });
-  
 
   // Update average data on click
   $(".average-button").on('click', function() {
