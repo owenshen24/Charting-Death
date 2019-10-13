@@ -59,15 +59,18 @@ hr {
 .stacked {
   height: 49rem;
 }
+.year-control {
+  margin-top: 2rem;
+}
 
 /* Mobile support */
-@media only screen and (max-width: 668px) {
+@media only screen and (max-width: 780px) {
   button {
     padding: unset;
     padding-left: 1rem;
     padding-right: 1rem;
   }
   .graph, .stacked {
-    height: 30rem;
+    height: 50rem;
   }
 }

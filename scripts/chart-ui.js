@@ -150,9 +150,11 @@ function update_data(key, year) {
 }
 
 let show_legend = true;
+let legend_position = 'left';
 let ratio = $( window ).height()/$( window ).width();
 if (ratio > 1.4) {
-  show_legend = false;
+  // show_legend = false;
+  legend_position = 'bottom';
 }
 
 function make_bar_graph(key, year) {
@@ -172,7 +174,7 @@ function make_bar_graph(key, year) {
       responsive: true,
       legend: {
         display: show_legend,
-        position: 'left',
+        position: legend_position,
         labels: {
           fontSize: 15,
           fontColor: '#000000',
@@ -236,7 +238,7 @@ function make_stack_bar_graph(key) {
       responsive: true,
       legend: {
         display: show_legend,
-        position: 'left',
+        position: legend_position,
         labels: {
           fontSize: 15,
           fontColor: '#000000',
