@@ -53,8 +53,11 @@ hr {
 }
 
 /* Graph stylings */
-.graph, .stacked {
+.graph {
   height: 48rem;
+}
+.stacked {
+  height: 49rem;
 }
 
 /* Mobile support */
@@ -65,6 +68,6 @@ hr {
     padding-right: 1rem;
   }
   .graph, .stacked {
-    height: 35rem;
+    height: 30rem;
   }
 }

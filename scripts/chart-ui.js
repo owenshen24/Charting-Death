@@ -100,7 +100,7 @@ let config = {
   "stack": {
     "path" : 'data/stack.csv',
     "id" : "#stack_chart",
-    "title" : "Average Deaths Distribution for All Sources",
+    "title" : "Average Distribution (All Sources)",
     "colors" : colors,
     "parse_callback" : {
       "complete" : function(r) {
@@ -151,7 +151,7 @@ function update_data(key, year) {
 
 let show_legend = true;
 let ratio = $( window ).height()/$( window ).width();
-if (ratio > 1.2) {
+if (ratio > 1.4) {
   show_legend = false;
 }
 
