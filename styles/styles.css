@@ -53,6 +53,18 @@ hr {
 }
 
 /* Graph stylings */
-.graph {
-  height: 38rem;
+.graph, .stacked {
+  height: 48rem;
+}
+
+/* Mobile support */
+@media only screen and (max-width: 668px) {
+  button {
+    padding: unset;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .graph, .stacked {
+    height: 35rem;
+  }
 }

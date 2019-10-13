@@ -149,6 +149,12 @@ function update_data(key, year) {
   make_bar_graph(key, year);
 }
 
+let show_legend = true;
+let ratio = $( window ).height()/$( window ).width();
+if (ratio > 1.2) {
+  show_legend = false;
+}
+
 function make_bar_graph(key, year) {
   let dataset = format_data(key, year);
   let scale = 'linear';
@@ -163,10 +169,15 @@ function make_bar_graph(key, year) {
     },
     options: {
       maintainAspectRatio: false,
+      responsive: true,
       legend: {
+        display: show_legend,
         position: 'left',
         labels: {
-          fontSize: 16
+          fontSize: 15,
+          fontColor: '#000000',
+          boxWidth: 15,
+          padding: 12
         }
       },
       title: {
@@ -188,6 +199,7 @@ function make_bar_graph(key, year) {
           }
         }]
       },
+      // Needed to remove the "Undefined" label
       tooltips: {
         callbacks: {
           title: function() {}
@@ -221,10 +233,15 @@ function make_stack_bar_graph(key) {
     },
     options: {
       maintainAspectRatio: false,
+      responsive: true,
       legend: {
+        display: show_legend,
         position: 'left',
         labels: {
-          fontSize: 16
+          fontSize: 15,
+          fontColor: '#000000',
+          boxWidth: 15,
+          padding: 12
         }
       },
       title: {
