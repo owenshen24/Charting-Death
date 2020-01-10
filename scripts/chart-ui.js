@@ -153,7 +153,6 @@ let show_legend = true;
 let legend_position = 'left';
 let ratio = $( window ).height()/$( window ).width();
 if (ratio > 1.4) {
-  // show_legend = false;
   legend_position = 'bottom';
 }
 
